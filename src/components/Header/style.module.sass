@@ -1,0 +1,91 @@
+@media(min-width: 576px)
+    .header
+        height: 100px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &>.header_main
+            display: flex
+            align-items: center
+            justify-content: center
+            gap: 20px
+            &>.btn_catalog
+                height: 50px
+                width: 130px
+                background: #339933
+                border: 2px solid #339933
+                border-radius: 5px
+                color: #FFFFFF
+                font-weight: 700
+                font-size: 16px
+                cursor: pointer
+                &>.header_logo
+                    height: 72px
+                    width: 72px
+        &>.header_menu
+            display: flex
+            flex-direction: row-reverse
+            gap: 56px
+            align-items: center
+            justify-content: space-between
+            &>.menu_body
+                display: block
+                &>.burger_menu
+                    border: none
+                    background-color: transparent
+                    cursor: pointer
+                    &>.icon_menu
+                        font-size: 30px
+                    &:hover
+                        color: #339933
+                &>.menu_list
+                    display: none
+                    &>li
+                        font-weight: 500
+                        list-style-type: none
+                        cursor: pointer
+                    &>li:hover
+                        font-weight: 600
+                        color: #339933
+            &>button
+                border: none
+                background-color: transparent
+                cursor: pointer
+                &>.icon_bag
+                    font-size: 30px
+                    &:hover
+                        color: #339933
+
+@media(min-width: 768px)
+    .header
+        &>.header_main
+            gap: 60px
+
+@media(min-width: 992px)
+    .header
+        &>.header_main
+            gap: 30px
+        &>.header_menu
+            height: 50px
+            display: flex
+            flex-direction: row
+            gap: 20px
+            &>.menu_body
+                &>.burger_menu
+                    display: none
+                &>.menu_list
+                    height: 50px
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    gap: 20px
+
+@media(min-width: 1200px)
+    .header
+        &>.header_main
+            gap: 60px
+        &>.header_menu
+            gap: 55px
+            &>.menu_body
+                &>.menu_list
+                    gap: 57px
