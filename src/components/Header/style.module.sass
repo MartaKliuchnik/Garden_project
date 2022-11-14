@@ -1,5 +1,6 @@
 @media(min-width: 576px)
     .header
+        position: relative
         height: 100px
         display: flex
         justify-content: space-between
@@ -36,17 +37,26 @@
                     cursor: pointer
                     &>.icon_menu
                         font-size: 30px
-                    &:hover
-                        color: #339933
+                        &:hover
+                            color: #339933
                 &>.menu_list
-                    display: none
+                    position: absolute
+                    padding: 0 30px
+                    transform: translateX(100%)
+                    right: 0px
+                    top: 100%
+                    transition: transform 0.5s ease
                     &>li
                         font-weight: 500
+                        border-bottom: 2px solid black
                         list-style-type: none
                         cursor: pointer
+                        padding: 7px 0
                     &>li:hover
                         font-weight: 600
                         color: #339933
+                &>.active
+                    transform: translateX(0)
             &>button
                 border: none
                 background-color: transparent
@@ -74,11 +84,15 @@
                 &>.burger_menu
                     display: none
                 &>.menu_list
+                    position: relative
+                    transform: translateX(0)
                     height: 50px
                     display: flex
                     align-items: center
                     justify-content: space-between
                     gap: 20px
+                    &>li
+                        border: none
 
 @media(min-width: 1200px)
     .header

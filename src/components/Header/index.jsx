@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import logo from './media/nav_logo.png';
-import bag from './media/nav_bag.png';
 import s from './style.module.sass';
 import {MenuOutlined, ShoppingOutlined} from '@ant-design/icons';
 
 export default function Nav() {
+
+    const nav_list_ref = useRef();
+
+    const nav_btn_click = () => {
+        nav_list_ref.current.classList.toggle(s.active);
+    }
+
     return (
         <div className={[s.header, 'wrapper'].join(' ')}>
             <div className={s.header_main}>
@@ -13,8 +19,8 @@ export default function Nav() {
             </div>
             <div className={s.header_menu}>
                 <nav className={s.menu_body}>
-                    <button className={s.burger_menu}><MenuOutlined className={s.icon_menu} /></button>
-                    <ul className={s.menu_list}>
+                    <button onClick={nav_btn_click} className={s.burger_menu}><MenuOutlined className={s.icon_menu} /></button>
+                    <ul ref={nav_list_ref} className={s.menu_list}>
                         <li>Categories</li>
                         <li>Coupon</li>
                         <li>Promotions</li>
