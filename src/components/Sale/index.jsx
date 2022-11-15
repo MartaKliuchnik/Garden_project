@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './style.module.sass'; 
 import picture from './media/sale_image.png'
+import Button from '../UI/Button';
 
 export default function Sale() {
     return (
@@ -11,7 +12,8 @@ export default function Sale() {
                     <p>for the new season</p>
                 </div>
                 <div className={s.btn_container}>
-                    <p>button</p>
+                    <Button>All promotions</Button>
+                    <Button>More</Button>
                 </div>
             </div>
             <div className={s.sale_picture}>
