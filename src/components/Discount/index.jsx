@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './style.module.sass';
 import picture_gnome from './media/gnome.png';
+import FormGettingDiscount from '../FormGettingDiscount'
 
 export default function Discount() {
     return (
@@ -10,11 +11,11 @@ export default function Discount() {
             </div>
             <div className={s.discount_info}>
                 <div className={s.discount_subheader}>
-                    <h2>Скидка 5%</h2>
-                    <p>на первый заказ</p>
+                    <h2>Discount 5%</h2>
+                    <p>for the first order</p>
                 </div>
                 <div className={s.discount_form}>
-                    
+                    <FormGettingDiscount/>
                 </div>
             </div>
         </div>
