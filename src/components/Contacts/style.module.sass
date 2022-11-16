@@ -1,0 +1,59 @@
+@media(min-width: 576px)
+    .wrapper
+        height: 300px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        gap: 25px
+        &>h2
+            font-size: 25px
+            font-weight: 700
+        &>p
+            font-size: 30px
+            font-weight: 600
+        &>.social_network_icons
+            display: flex
+            align-items: center
+            gap: 30px
+            &>.instagram_icon
+                display: flex
+                flex-direction: column
+                gap: 5px
+            &>.whats_up_icon
+                display: flex
+                flex-direction: column
+                gap: 5px
+
+@media(min-width: 768px)
+    .wrapper
+        gap: 25px
+        &>h2
+            font-size: 25px
+        &>p
+            font-size: 40px
+
+@media(min-width: 992px)
+    .wrapper
+        gap: 20px
+        &>h2
+            font-size: 30px
+        &>p
+            font-size: 50px
+
+@media(min-width: 1200px)
+    .wrapper
+        &>h2
+            font-size: 40px
+        &>p
+            font-size: 70px
+        &>.social_network_icons
+            font-size: 40px
+            gap: 30px
+            &>.instagram_icon
+                gap: 10px
+            &>.instagram_icon>p
+                font-size: 15px
+            &>.whats_up_icon
+                gap: 10px
+            &>.whats_up_icon>p
+                font-size: 15px

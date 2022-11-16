@@ -1,6 +1,7 @@
-import Discount from "../Discount";
 import Header from "../Header";
 import Sale from "../Sale";
+import Footer from "../Footer";
+import Discount from "../Discount";
 
 function App() {
 
@@ -8,7 +9,8 @@ function App() {
     <div>
       <Header />
       <Sale />
-      <Discount/>
+      <Discount />
+      <Footer/>
     </div>
   );
 }
