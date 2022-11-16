@@ -1,44 +1,59 @@
 @media(min-width: 576px)
     .wrapper
-        height: 300px
         display: flex
         flex-direction: column
         gap: 25px
         &>h2
-            font-size: 25px
+            font-size: 20px
             font-weight: 700
         &>p
-            font-size: 30px
+            font-size: 25px
             font-weight: 600
         &>.social_network_icons
-            margin-top: 45px
+            margin-top: 13px
+            font-size: 25px
             display: flex
             align-items: center
             gap: 30px
+            &>.instagram_icon>p
+                font-size: 13px
+            &>.whats_up_icon>p
+                font-size: 13px
             &>.instagram_icon
+                cursor: pointer
                 display: flex
                 flex-direction: column
                 gap: 5px
             &>.whats_up_icon
+                cursor: pointer
                 display: flex
                 flex-direction: column
                 gap: 5px
 
 @media(min-width: 768px)
     .wrapper
-        gap: 25px
+        gap: 20px
         &>h2
             font-size: 25px
         &>p
-            font-size: 40px
+            font-size: 35px
+        &>.social_network_icons
+            font-size: 30px
+            margin-top: 25px
 
 @media(min-width: 992px)
     .wrapper
-        gap: 20px
         &>h2
             font-size: 30px
         &>p
-            font-size: 50px
+            font-size: 47px
+        &>.social_network_icons
+            font-size: 35px
+            margin-top: 20px
+            &>.instagram_icon>p
+                font-size: 15px
+            &>.whats_up_icon>p
+                font-size: 15px
 
 @media(min-width: 1200px)
     .wrapper
@@ -51,9 +66,5 @@
             gap: 30px
             &>.instagram_icon
                 gap: 10px
-            &>.instagram_icon>p
-                font-size: 15px
             &>.whats_up_icon
                 gap: 10px
-            &>.whats_up_icon>p
-                font-size: 15px
