@@ -11,7 +11,7 @@ export default function Discount() {
             </div>
             <div className={s.discount_info}>
                 <div className={s.discount_subheader}>
-                    <h2>Discount 5%</h2>
+                    <p className={s.p_discount}>Discount 5%</p>
                     <p>for the first order</p>
                 </div>
                 <div className={s.discount_form}>

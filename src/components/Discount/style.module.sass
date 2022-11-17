@@ -18,7 +18,7 @@
             display: flex
             flex-direction: column
             gap: 25px
-            &>.discount_subheader>h2
+            &>.discount_subheader>.p_discount
                 font-size: 40px
                 font-weight: 900
             &>.discount_subheader>p
@@ -31,7 +31,7 @@
         gap: 90px
         &>.discount_info
             gap: 30px
-            &>.discount_subheader>h2
+            &>.discount_subheader>.p_discount
                 font-size: 54px
             &>.discount_subheader>p
                 font-size: 38px
@@ -41,8 +41,7 @@
         height: 400px
         gap: 120px
         &>.discount_info
-            gap: 30px
-            &>.discount_subheader>h2
+            &>.discount_subheader>.p_discount
                 font-size: 71px
             &>.discount_subheader>p
                 font-size: 50px
@@ -50,8 +49,15 @@
 @media(min-width: 1200px)
     .wrapper
         height: 480px
+        gap: 150px
+        &>.discount_info
+            &>.discount_subheader>.p_discount
+                font-size: 90px
+            &>.discount_subheader>p
+                font-size: 60px
+
+@media(min-width: 1440px)
+    .wrapper
         gap: 200px
-        &>.discount_info>h2
-            font-size: 90px
-        &>.discount_info>p
-            font-size: 60px
+        &>.discount_info
+            gap: 46px
