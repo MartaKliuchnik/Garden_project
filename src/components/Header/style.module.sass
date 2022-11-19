@@ -20,6 +20,11 @@
                 font-weight: 700
                 font-size: 16px
                 cursor: pointer
+                transition: color 0.5s, background-color 0.5s
+                &:hover
+                    color: #339933
+                    background-color: #FFFFFF
+                    border-radius: 1px solid #339933
                 &>.header_logo
                     height: 72px
                     width: 72px
@@ -49,7 +54,9 @@
                     z-index: 10
                     background-color: white
                     border-radius: 0px 0px 0px 5px
-                    &>li
+                    &>li,a
+                        color: black
+                        text-decoration: none
                         font-weight: 500
                         list-style-type: none
                         cursor: pointer
@@ -57,9 +64,13 @@
                     &>li:hover
                         font-weight: 600
                         color: #339933
+                        &>a:hover
+                            font-weight: 600
+                            color: #339933
                 &>.active
                     transform: translateX(0)
-            &>button
+            &>a
+                color: black
                 border: none
                 background-color: transparent
                 cursor: pointer

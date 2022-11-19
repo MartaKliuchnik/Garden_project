@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import logo from './media/nav_logo.png';
 import s from './style.module.sass';
-import {MenuOutlined, ShoppingOutlined} from '@ant-design/icons';
+import { MenuOutlined, ShoppingOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
 
@@ -14,21 +15,20 @@ export default function Nav() {
     return (
         <div className={[s.header, 'wrapper'].join(' ')}>
             <div className={s.header_main}>
-                <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
+                <a  href="/garden_project_main_page"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
                 <button className={s.btn_catalog}>Catalog</button>
             </div>
             <div className={s.header_menu}>
                 <nav className={s.menu_body}>
                     <button onClick={nav_btn_click} className={s.burger_menu}><MenuOutlined className={s.icon_menu} /></button>
                     <ul ref={nav_list_ref} className={s.menu_list}>
-                        <li>Categories</li>
+                        <li><Link to='/all_categories'>Categories</Link></li>
                         <li>Coupon</li>
                         <li>Promotions</li>
-                        <li>Contacts</li>
+                        <li><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>
-                <button><ShoppingOutlined className={s.icon_bag} /></button>
-                
+                <Link to='/basket'><ShoppingOutlined className={s.icon_bag} /></Link> 
             </div>
         </div>
     )
