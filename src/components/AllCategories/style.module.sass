@@ -1,0 +1,33 @@
+@media(min-width: 576px)
+    .categories_container
+        margin: 0 auto
+        margin-bottom: 10px
+    .slider
+        display: flex
+        gap: 172px
+    .block
+        display: flex
+        flex-direction: column
+        gap: 60px
+
+@media(min-width: 768px)
+    .block
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 60px 30px
+    .slider
+        gap: 68px
+
+@media(min-width: 992px)
+    .block
+        grid-template-columns: repeat(3, 1fr)
+    .slider
+        gap: 44px
+
+@media (min-width: 1200px)
+    .slider
+        gap: 91px
+
+@media(min-width: 1440px)
+    .block
+        grid-template-columns: repeat(4, 1fr)
