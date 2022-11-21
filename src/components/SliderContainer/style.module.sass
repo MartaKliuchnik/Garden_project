@@ -1,46 +1,49 @@
 @media(min-width: 576px)
     .wrapper
-        background-color: #a29bfe
         padding: 40px 30px
         height: 600px
         display: flex
         flex-direction: column
-        background-color: #a29bfe
         font-weight: 600
         gap: 20px
         &>.block_subheader
             margin-bottom: 20px
             font-weight: 700
             font-size: 25px
-            display: flex
-            gap: 25px
+            display: grid
+            grid-template-columns: repeat(2, 140px)
+            gap: 15px
             align-items: center
-            &>button
-                cursor: pointer
-                width: 70px
-                height: 13px
-                font-size: 8px
-                color: #8B8B8B
-                border: 2px solid #8B8B8B
-                font-weight: 600
-                background-color: transparent
-                &:hover
-                    color: black
-                    border: 2px solid black
+            &>a
+                text-decoration: none
+                display: flex
+                align-items: center
+                &>button
+                    cursor: pointer
+                    width: 70px
+                    height: 13px
+                    font-size: 8px
+                    color: #8B8B8B
+                    border: 2px solid #8B8B8B
+                    font-weight: 600
+                    background-color: transparent
+                    &:hover
+                        color: black
+                        border: 2px solid black
         &>.slider
-            padding: 0 82px
             border: 2px solid black
+            padding: 0 82px
             height: 410px
             width: 516px
             margin: 0 auto
             position: relative
-            // overflow-x: hidden
+            overflow-x: hidden
             &>.trigger
                 // color: #339933
                 position: absolute
                 font-size: 50px
-                top: 45%
-                transform: translateY(-50%)
+                top: 35%
+                // transform: translateY(-50%)
                 cursor: pointer
                 z-index: 100
                 opacity: 0
@@ -56,23 +59,31 @@
     .wrapper
         height: 600px
         &>.block_subheader
+            grid-template-columns: repeat(2, 140px)
+            gap: 18px
             font-size: 25px
-            &>button
-                width: 90px
-                height: 18px
-                font-size: 9px
+            &>a
+                &>button
+                    width: 90px
+                    height: 18px
+                    font-size: 9px
         &>.slider
+            // padding: 0 0
             width: 708px
 
 @media(min-width: 992px)
     .wrapper
         height: 570px
         &>.block_subheader
+            grid-template-columns: repeat(2, 170px)
+            gap: 20px
             font-size: 30px
-            &>button
-                width: 100px
-                height: 25px
-                font-size: 11px
+            &>a
+                &>button
+                    font-size: 10px
+                    width: 100px
+                    height: 20px
+                    font-size: 11px
         &>.slider
             width: 932px
             height: 650px
@@ -81,15 +92,25 @@
     .wrapper
         height: 600px
         &>.block_subheader
+            grid-template-columns: repeat(2, 230px)
             font-size: 40px
-            &>button
-                width: 120px
-                height: 30px
-                font-size: 12px
+            gap: 20px
+            &>a
+                &>button
+                    width: 100px
+                    height: 25px
+                    font-size: 12px
         &>.slider
             width: 1140px
 
 @media(min-width: 1440px)
     .wrapper
+        &>.block_subheader
+            gap: 26px
+            &>a
+                &>button
+                    font-size: 12px
+                    width: 120px
+                    height: 30px
         &>.slider
             width: 1366px
