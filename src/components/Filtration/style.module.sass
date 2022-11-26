@@ -1,0 +1,118 @@
+@media (min-width: 567px)
+    .filtr_container
+        display: grid
+        grid-template-columns: 280px 200px
+        gap: 10px
+        font-weight: 600
+        font-size: 12px
+        &>.price_filtr
+            gap: 11px
+            display: flex
+            align-items: center
+            &>input
+                border: 1px solid #000000
+                border-radius: 5px
+                width: 103px
+                height: 42px
+                padding: 0 10px
+                &>::placeholder
+                    color: #ACACAC
+        &>.dicsount_filtr
+            grid-row-start: 1
+            grid-row-end: 3
+            grid-column-start: 2
+            display: flex
+            align-items: center
+            gap: 15px
+            &>input
+                padding: 0 10px
+                width: 40px
+                height: 40px
+                border: 1px solid #000000
+                border-radius: 5px
+                accent-color: #339933
+        &>.sort
+            display: flex
+            align-items: center
+            gap: 15px
+            &>select
+                padding: 0 10px
+                width: 220px
+                height: 40px
+                border: 1px solid #000000
+                border-radius: 5px
+                &>::placeholder
+                    color: #ACACAC
+
+@media (min-width: 768px)
+    .filtr_container
+        display: flex
+        font-size: 13px
+        gap: 15px
+        align-items: center
+        &>.price_filtr
+            gap: 10px
+            &>input
+                font-size: 10px
+                width: 70px
+                height: 27px
+        &>.dicsount_filtr
+            gap: 10px
+            &>input
+                width: 27px
+                height: 27px
+        &>.sort
+            gap: 10px
+            &>select
+                width: 150px
+                height: 27px
+
+@media (min-width: 992px)
+    .filtr_container
+        font-size: 15px
+        gap: 20px
+        &>.price_filtr
+            &>input
+                border-radius: 7px
+                height: 30px
+        &>.dicsount_filtr
+            &>input
+                border-radius: 7px
+                height: 30px
+                width: 30px
+        &>.sort
+            &>select
+                border-radius: 7px
+                width: 180px
+                height: 30px
+
+@media (min-width: 1200px)
+    .filtr_container
+        gap: 35px
+        font-size: 20px
+        &>.price_filtr
+            gap: 15px
+            &>input
+                font-size: 13px
+                width: 100px
+                height: 40px
+        &>.dicsount_filtr
+            gap: 15px
+            &>input
+                width: 40px
+                height: 40px
+        &>.sort
+            gap: 15px
+            &>select
+                width: 200px
+                height: 40px
+
+@media (min-width: 1440px)
+    .filtr_container
+        gap: 40px
+        &>.price_filtr
+            &>input
+                width: 103px
+        &>.sort
+            &>select
+                width: 220px

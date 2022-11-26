@@ -3,6 +3,7 @@ import s from './style.module.sass';
 import Product from '../Product';
 import { useContext } from 'react';
 import { Context } from '../../context';
+import Filtration from '../Filtration';
 
 export default function ProductsContainer() {
     const { products } = useContext(Context);
@@ -13,7 +14,7 @@ export default function ProductsContainer() {
                 <p>Инструменты и инвентарь</p>
             </div>
             <div className={s.filtration}>
-                
+                <Filtration/>
             </div>
             <div className={s.products_container}>
                 {
