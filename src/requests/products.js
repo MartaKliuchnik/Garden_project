@@ -1,5 +1,5 @@
-export const get_all_categories = (callback) => {
-    fetch('http://localhost:3333/categories/all')
-        .then(responce => responce.json())
-        .then(data => callback(data))
+export const get_all_products = (callback) => {
+    fetch('http://localhost:3333/products/all')
+        .then(response => response.json())
+        .then(products => callback(products))
 }

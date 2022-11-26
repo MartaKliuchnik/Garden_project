@@ -24,7 +24,7 @@ export default function Nav() {
                     <ul ref={nav_list_ref} className={s.menu_list}>
                         <li><Link to='/all_categories'>Categories</Link></li>
                         <li>Coupon</li>
-                        <li>Promotions</li>
+                        <li><Link to='all_products'>Promotions</Link></li>
                         <li><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>

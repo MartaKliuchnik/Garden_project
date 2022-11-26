@@ -1,0 +1,50 @@
+@media (min-width: 576px)
+    .wrapper
+        padding-top: 70px
+        &>.subheader>p
+            margin-bottom: 40px
+            font-weight: 700
+            font-size: 20px
+        &>.filtration
+            margin-bottom: 34px
+        &>.products_container
+            display: flex
+            align-items: center
+            flex-direction: column
+            gap: 20px
+
+@media(min-width: 768px)
+    .wrapper
+        &>.subheader>p
+            font-size: 25px
+        &>.products_container
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 20px
+
+@media(min-width: 992px)
+    .wrapper
+        padding-top: 60px
+        &>.subheader>p
+            font-size: 30px
+        &>.products_container
+            grid-template-columns: repeat(3, 1fr)
+            gap: 10px
+
+@media (min-width: 1200px)
+    .wrapper
+        padding-top: 80px
+        &>.subheader>p
+            font-size: 40px
+        &>.products_container
+            gap: 30px
+
+@media (min-width: 1440px)
+    .wrapper
+        padding-top: 90px
+        margin-bottom: 56px
+        &>.subheader>p
+            margin-bottom: 80px
+        &>.products_container
+            grid-template-columns: repeat(4, 1fr)
+            gap: 43px

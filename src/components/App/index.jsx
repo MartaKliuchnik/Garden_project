@@ -6,13 +6,16 @@ import { Routes, Route } from 'react-router-dom';
 import PageCategories from "../../pages/PageCategories";
 import MainPage from "../../pages/MainPage";
 import BasketPage from "../../pages/BasketPage";
-import NotFoundPage from '../../pages/NotFoundPage'
-import { get_all_categories } from "../../requests/products";
+import NotFoundPage from '../../pages/NotFoundPage';
+import PageProducts from "../../pages/PageProducts";
+import { get_all_categories } from "../../requests/categories";
+import { get_all_products } from '../../requests/products';
 
 
 function App() {
 
   const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const slider_container = useRef();
 
@@ -114,21 +117,26 @@ function App() {
   
   useEffect(() => {
     get_all_categories(setCategories);
+    get_all_products(setProducts);
   }, [])
   
 
   return (
     <Context.Provider value={{
-      categories, slider_container,
-      shift_left, shift_right
+      categories,
+      slider_container,
+      products,
+      shift_left,
+      shift_right
     }}>
       <Header />
 
       <Routes>
         <Route path='/all_categories' element={<PageCategories/>} />
         <Route path='/garden_project_main_page' element={<MainPage/>} />
-        <Route path='/basket' element={<BasketPage/>} />
-        <Route path='/*' element={<NotFoundPage/>}/>
+        <Route path='/basket' element={<BasketPage />} />
+        <Route path='/all_products' element={<PageProducts/>}/>
+        <Route path='/*' element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
