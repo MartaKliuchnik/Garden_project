@@ -17,44 +17,92 @@ function App() {
   const slider_container = useRef();
 
   let slide_number = 0;
-
   let slide_width = 0;
-  if (window.innerWidth >= 1440) {
-    slide_width = 1392
-  } else if (window.innerWidth >= 1200 || window.innerWidth < 1440) {
-    slide_width = 1227
-  }
 
+  function check_size() {
+    if (window.innerWidth >= 1440) {
+      slide_width = 348;
+
+    } else if (window.innerWidth >= 1200 && window.innerWidth < 1440) {
+      slide_width = 409;
+
+    } else if (window.innerWidth >= 992 && window.innerWidth < 1200) {
+      slide_width = 324;
+
+    } else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+      slide_width = 384;
+
+    } else if (window.innerWidth >= 576 || window.innerWidth < 768) {
+      slide_width = 350;
+    }
+    return slide_width
+  }
+  check_size();
 
   const shift_left = () => {
-    if (slide_width === 1392) {
+    if (slide_width === 348) {
       if (slide_number > 0) {
         slider_container.current.style.left = --slide_number * (-slide_width) + 'px'
       } else {
-        slide_number = categories.length / 4 - 1;
+        slide_number = categories.length - 4;
         slider_container.current.style.left = slide_number * (-slide_width) + 'px'
       }
-    } else if (slide_width === 1227) {
+
+    } else if (slide_width === 409 || slide_width === 324) {
       if (slide_number > 0) {
         slider_container.current.style.left = --slide_number * (-slide_width) + 'px'
       } else {
-        slide_number = categories.length / 3 - 1;
+        slide_number = categories.length - 3;
         slider_container.current.style.left = slide_number * (-slide_width) + 'px'
       }
-    }
+
+    } else if (slide_width === 384) {
+      if (slide_number > 0) {
+        slider_container.current.style.left = --slide_number * (-slide_width) + 'px'
+      } else {
+        slide_number = categories.length - 2;
+        slider_container.current.style.left = slide_number * (-slide_width) + 'px'
+      }
+
+    } else if (slide_width === 350) {
+      if (slide_number > 0) {
+        slider_container.current.style.left = --slide_number * (-slide_width) + 'px'
+      } else {
+        slide_number = categories.length - 1;
+        slider_container.current.style.left = slide_number + (-slide_width) + 'px'
+      }
+    } 
   }
 
   const shift_right = () => {
-    if (slide_width === 1392) {
-        if (slide_number < categories.length / 4 - 1) {
+    if (slide_width === 348) {
+      if (slide_number < categories.length - 4) {
           slider_container.current.style.left = ++slide_number * (-slide_width) + 'px'
         } else {
           slide_number = 0;
           slider_container.current.style.left = slide_number * (-slide_width) + 'px'
       }
-    } else if (slide_width === 1227) {
-      if (slide_number < categories.length / 3 - 1) {
-      slider_container.current.style.left = ++slide_number * (-slide_width) + 'px'
+
+    } else if (slide_width === 409 || slide_width === 324) {
+      
+      if (slide_number < categories.length - 3) {
+        slider_container.current.style.left = ++slide_number * (-slide_width) + 'px'
+      } else {
+        slide_number = 0;
+        slider_container.current.style.left = slide_number * (-slide_width) + 'px'
+      }
+
+    } else if (slide_width === 384) {
+      if (slide_number < categories.length - 2) {
+        slider_container.current.style.left = ++slide_number * (-slide_width) + 'px'
+      } else {
+        slide_number = 0;
+        slider_container.current.style.left = slide_number * (-slide_width) + 'px'
+      }
+
+    } else if (slide_width === 350) {
+      if (slide_number < categories.length - 1) {
+        slider_container.current.style.left = ++slide_number * (-slide_width) + 'px'
       } else {
         slide_number = 0;
         slider_container.current.style.left = slide_number * (-slide_width) + 'px'
@@ -62,12 +110,18 @@ function App() {
     }
   }
 
+  window.addEventListener('resize', check_size);
+  
   useEffect(() => {
     get_all_categories(setCategories);
   }, [])
   
+
   return (
-    <Context.Provider value={{categories, slider_container, shift_left, shift_right}}>
+    <Context.Provider value={{
+      categories, slider_container,
+      shift_left, shift_right
+    }}>
       <Header />
 
       <Routes>

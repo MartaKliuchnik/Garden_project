@@ -19,16 +19,12 @@ export default function SliderContainer() {
             <div className={s.slider}>
                 <div
                     className={[s.trigger, s.left].join(' ')}
-                    // ref={left_trigger}
-                    onClick={shift_left}
-                >
+                    onClick={shift_left}>
                         <LeftCircleOutlined />
                 </div>
                 <div
                     className={[s.trigger, s.right].join(' ')}
-                    // ref={right_trigger}
-                    onClick={shift_right}
-                >
+                    onClick={shift_right}>
                     <RightCircleOutlined />
                 </div>
                 <FilmContainer />
