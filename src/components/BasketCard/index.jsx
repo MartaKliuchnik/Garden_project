@@ -1,9 +1,14 @@
 import React from 'react';
 import s from './style.module.sass';
 import product from '../BasketCard/media/product_basket.png';
+import { deleteBasketCard } from '../../store/reducer/basketReducer';
+import { CloseOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
 
 
-export default function BasketItem({ title, price, discont_price }) {
+export default function BasketItem({id, title, price, discont_price }) {
+    
+    const dispatch = useDispatch();
     
     const block_price = discont_price === 0.75
         ?
@@ -18,6 +23,7 @@ export default function BasketItem({ title, price, discont_price }) {
     
     return (
         <div className={s.basket_item}>
+            <CloseOutlined onClick={() => dispatch(deleteBasketCard(id))} className={s.close_icon} />
             <div className={s.product_img}>
                 <img src={product} alt="photo_product" />
             </div>

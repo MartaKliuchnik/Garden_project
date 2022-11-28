@@ -4,10 +4,18 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import BasketCard from '../BasketCard';
 import { RightOutlined } from '@ant-design/icons';
+import BackHome from '../UI/BackHome'
+
 
 export default function Basket() {
 
     const products_basket = useSelector(state => state);
+    const products_array = products_basket.map(product => <BasketCard key={product.id} {...product} />)
+    const empty_basket =
+        <div className={s.empty_basket_container}>
+            <p>Basket is empty</p>
+        </div>
+
 
     return (
         <div className={['wrapper', s.wrapper].join(' ')}>
@@ -18,8 +26,10 @@ export default function Basket() {
             <div className={s.basket_container}>
                 <div className={s.orders}>
                     {
-                        products_basket.map(product => <BasketCard key={product.id} {...product} />)
-                    }
+                        products_basket.length === 0
+                            ? empty_basket
+                            : products_array
+                    }   
                 </div>
                 <div className={s.order_detail_container}>
                     <p>Order Details</p>
