@@ -6,10 +6,10 @@ import { CloseOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 
 
-export default function BasketItem({id, title, price, discont_price }) {
+export default function BasketItem({id, title, price, discont_price, count }) {
     
     const dispatch = useDispatch();
-    
+
     const block_price = discont_price === 0.75
         ?
         <>
@@ -31,7 +31,7 @@ export default function BasketItem({id, title, price, discont_price }) {
                 <p>{title}</p>
                 <div className={s.product_count}>
                     <button>-</button>
-                    <p>0</p>
+                    <p>{count}</p>
                     <button>+</button>
                 </div>
             </div>

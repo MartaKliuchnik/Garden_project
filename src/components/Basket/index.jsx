@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import BasketCard from '../BasketCard';
 import { RightOutlined } from '@ant-design/icons';
-import BackHome from '../UI/BackHome'
 
 
 export default function Basket() {
 
     const products_basket = useSelector(state => state);
+    
     const products_array = products_basket.map(product => <BasketCard key={product.id} {...product} />)
     const empty_basket =
         <div className={s.empty_basket_container}>
