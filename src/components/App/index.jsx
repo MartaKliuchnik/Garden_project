@@ -132,11 +132,11 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path='/all_categories' element={<PageCategories/>} />
-        <Route path='/garden_project_main_page' element={<MainPage/>} />
+        <Route path='/' element={<MainPage/>} />
+        <Route path='/all_categories' element={<PageCategories />} />
         <Route path='/basket' element={<BasketPage />} />
         <Route path='/all_products' element={<PageProducts/>}/>
-        <Route path='/*' element={<NotFoundPage />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
