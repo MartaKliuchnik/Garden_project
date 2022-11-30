@@ -1,0 +1,67 @@
+@media(min-width: 576px)
+    .container
+        display: grid
+        gap: 25px
+        &>input
+            padding: 15px
+            height: 55px
+            color: #929292
+            font-weight: 500
+            border: 1px solid #000000
+            border-radius: 14px
+            font-size: 12px
+        &>button
+            font-size: 18px
+            border-radius: 14px
+            height: 55px
+            cursor: pointer
+            background: #339933
+            border: 1px solid #339933
+            font-weight: 700
+            color: white
+            transition: color 0.5s, background-color 0.5s
+            &:hover
+                color: #339933
+                background-color: white
+
+@media(min-width: 768px)
+    .container
+        gap: 15px
+
+@media(min-width: 992px)
+    .container
+        gap: 20px
+        &>input
+            font-size: 14px
+            padding: 18px
+            height: 60px
+            border-radius: 16px
+        &>button
+            border-radius: 16px
+            height: 60px
+            font-size: 20px
+
+@media(min-width: 1200px)
+    .container
+        &>input
+            font-size: 16px
+            padding: 20px
+            height: 65px
+            border-radius: 18px
+        &>button
+            border-radius: 18px
+            height: 65px
+            font-size: 25px
+
+@media(min-width: 1440px)
+    .container
+        gap: 25px
+        &>input
+            font-size: 18px
+            padding: 25px
+            height: 73px
+            border-radius: 20px
+        &>button
+            border-radius: 20px
+            height: 73px
+            font-size: 28px

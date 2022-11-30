@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import BasketCard from '../BasketCard';
 import { RightOutlined } from '@ant-design/icons';
+import OrderForm from '../UI/OrderForm';
 
 
 export default function Basket() {
@@ -15,7 +16,6 @@ export default function Basket() {
         <div className={s.empty_basket_container}>
             <p>Basket is empty</p>
         </div>
-    
     
     const total_price_order = products_basket.reduce((total_price, { price, discont_price, count }) => 
         discont_price === 0.75
@@ -38,14 +38,18 @@ export default function Basket() {
                             : products_array
                     }   
                 </div>
-                <div className={s.order_detail_container}>
+                {
+                    products_basket.length === 0
+                ? ''    
+                : <div className={s.order_detail_container}>
                     <p>Order Details</p>
-                    <p>Price: {total_price_order}€</p>
-                    <form>
-                        <input type="phone" placeholder='Your phone number' name='phone' />
-                        <button>Order</button>
-                    </form>
+                    <div className={s.price_container}>
+                        <p>Price:</p>
+                        <p className={s.price}>{total_price_order} €</p>
+                    </div>
+                    <OrderForm/>
                 </div>
+                }               
             </div>
         </div>
     )
