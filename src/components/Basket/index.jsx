@@ -15,6 +15,13 @@ export default function Basket() {
         <div className={s.empty_basket_container}>
             <p>Basket is empty</p>
         </div>
+    
+    
+    const total_price_order = products_basket.reduce((total_price, { price, discont_price, count }) => 
+        discont_price === 0.75
+            ? total_price + price * count
+            : total_price + discont_price * count
+        , 0)
 
 
     return (
@@ -33,7 +40,7 @@ export default function Basket() {
                 </div>
                 <div className={s.order_detail_container}>
                     <p>Order Details</p>
-                    <p>Price:</p>
+                    <p>Price: {total_price_order}€</p>
                     <form>
                         <input type="phone" placeholder='Your phone number' name='phone' />
                         <button>Order</button>

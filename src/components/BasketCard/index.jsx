@@ -13,7 +13,7 @@ export default function BasketItem({id, title, price, discont_price, count }) {
     const block_price = discont_price === 0.75
         ?
         <>
-            <p className = {s.clear_price}>{price*count}€</p>
+            <p className = {s.clear_price}>{price * count}€</p>
         </>
         : 
         <>

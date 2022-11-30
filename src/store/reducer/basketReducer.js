@@ -21,7 +21,9 @@ const checkCard = (state, product) => {
             count: 1
         }]
     }
+    
 }
+
 
 const increment = (state, payload) => {
     const current_product = state.find(({ id }) => id === payload);
