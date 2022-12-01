@@ -15,7 +15,7 @@ export default function Nav() {
     return (
         <div className={[s.header, 'wrapper'].join(' ')}>
             <div className={s.header_main}>
-                <a  href="/garden_project_main_page"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
+                <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
                 <button className={s.btn_catalog}>Catalog</button>
             </div>
             <div className={s.header_menu}>

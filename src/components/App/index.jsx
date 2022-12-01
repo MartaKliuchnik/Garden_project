@@ -16,6 +16,7 @@ function App() {
 
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   const slider_container = useRef();
 
@@ -114,20 +115,37 @@ function App() {
   }
 
   window.addEventListener('resize', check_size);
-  
+
   useEffect(() => {
     get_all_categories(setCategories);
     get_all_products(setProducts);
-  }, [])
-  
+  }, []);
 
-  return (
+  const [showProducts, setShowProducts] = useState(products);
+
+  const checkClick = (check_discount) => {
+      let filter_products;
+      if (check_discount) {
+        setShowProducts(products);
+      } else {
+        filter_products = products.filter(product => product.discont_price !== 0.75);
+        setShowProducts(filter_products);
+      }
+    }
+
+  useEffect(() => {
+    setShowProducts(products)
+  }, [products]);
+
+  return ( 
     <Context.Provider value={{
       categories,
       slider_container,
-      products,
+      showProducts,
       shift_left,
-      shift_right
+      shift_right,
+      setIsChecked, isChecked,
+      checkClick
     }}>
       <Header />
 

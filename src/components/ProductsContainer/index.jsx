@@ -6,7 +6,7 @@ import { Context } from '../../context';
 import Filtration from '../Filtration';
 
 export default function ProductsContainer() {
-    const { products } = useContext(Context);
+    const { showProducts } = useContext(Context);
     
     return (
         <div className={['wrapper', s.wrapper].join(' ')}>
@@ -18,7 +18,7 @@ export default function ProductsContainer() {
             </div>
             <div className={s.products_container}>
                 {
-                    products.map(product => <Product key={product.id} {...product} />)
+                    showProducts.map(product => <Product key={product.id} {...product} />)
                 }
             </div>
         </div>

@@ -1,7 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import s from './style.module.sass';
+import { Context } from '../../context';
 
 export default function Filtration() {
+
+    const { checkClick, setIsChecked, isChecked } = useContext(Context);
+    
     return (
         <div className={s.filtr_container}>
             <div className={s.price_filtr}>
@@ -9,10 +14,18 @@ export default function Filtration() {
                 <input type="number" placeholder='from' name='from_price' />
                 <input className={s.input_2} type="number" placeholder='to' name='to_price'/>
             </div>
-            <div className={s.dicsount_filtr}>
+
+            <div className={s.discount_filtr}>
                 <p>Discounted Products</p>
-                <input type="checkbox" name='discount' id='cb'/>
+                <input type="checkbox" id='cd'
+                    onChange={() => {
+                        setIsChecked(!isChecked);
+                        checkClick(isChecked)
+                    }
+                    }
+                />
             </div>
+
             <div className={s.sort}>
                 <p>Sort:</p>
                 <select name="sort" defaultValue="default">
