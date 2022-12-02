@@ -114,6 +114,12 @@ function App() {
     }
   }
 
+  // const new_array = (products_array) => {
+  //   products_array.map(product => (product.discont_price === 0.75 ? { ...product, final_price: price } : { ...product, final_price: discont_price }));
+  //   console.log(products_array)
+  // }
+  // new_array(); 
+
   window.addEventListener('resize', check_size);
 
   useEffect(() => {
@@ -121,29 +127,47 @@ function App() {
     get_all_products(setProducts);
   }, []);
 
-  const [showProducts, setShowProducts] = useState(products);
+  let [showProducts, setShowProducts] = useState(products);
 
   const checkDiscount = (check_discount) => {
-      let filter_products;
       if (check_discount) {
-        setShowProducts(products);
+        setShowProducts(showProducts);
       } else {
-        filter_products = products.filter(product => product.discont_price !== 0.75);
+        const filter_products = products.filter(product => product.discont_price !== 0.75);
         setShowProducts(filter_products);
       }
   }
-  
+
   const checkSort = (value_sort) => {
+    showProducts = showProducts.map(product => (product.discont_price === 0.75)
+      ? { ...product, filtr_price: product.price }
+      : { ...product, filtr_price: product.discont_price });
+    console.log(showProducts);
+    setShowProducts(showProducts);
+
       setShowProducts(prev => {
         if (value_sort === 1) {
-          return [...prev].sort((a, b) => b.discont_price - a.discont_price)
-        } else if (value_sort === 2){ 
-          return [...prev].sort((a, b) => a.discont_price - b.discont_price)
+          return [...prev].sort((a, b) => b.filtr_price - a.filtr_price)
+        } else if (value_sort === 2) { 
+          return [...prev].sort((a, b) => a.filtr_price - b.filtr_price)
         }
       })
+    }
+
+  const checkPrice = (from_price, to_price) => {
+    to_price = (to_price === 0) ? showProducts.reduce((max, { price }) => max < price ? price : max, 0) : to_price;
+    
+    console.log(from_price, to_price);
+    setShowProducts(prev => {
+      return [...prev].filter(product =>
+        ( ((product.discont_price === 0.75) ? product.price : product.discont_price >= from_price) &&
+          ((product.discont_price === 0.75) ? product.price : product.discont_price <= to_price)) 
+        ? product
+        : ''
+    )
+    })
   }
   
-
   useEffect(() => {
     setShowProducts(products)
   }, [products]);
@@ -157,7 +181,8 @@ function App() {
       shift_right,
       setIsChecked, isChecked,
       checkDiscount,
-      checkSort
+      checkSort,
+      checkPrice
     }}>
       <Header />
 

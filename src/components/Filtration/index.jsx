@@ -5,7 +5,7 @@ import { Context } from '../../context';
 
 export default function Filtration() {
 
-    const { checkDiscount, setIsChecked, isChecked, checkSort } = useContext(Context);
+    const { checkDiscount, setIsChecked, isChecked, checkSort, checkPrice } = useContext(Context);
 
     const submit_sort = event => {
         event.preventDefault();
@@ -13,13 +13,21 @@ export default function Filtration() {
         checkSort(+sorts.value);
     }
     
+    const submit_price = event => {
+        event.preventDefault();
+        const { from_price, to_price } = event.target;
+        checkPrice(+from_price.value, +to_price.value);
+    }
     
     return (
         <div className={s.filtr_container}>
-            <form className={s.price_filtr}>
+            <form className={s.price_filtr}
+                onSubmit={submit_price}
+            >
                 <label>Price:</label>
-                <input type="number" placeholder='from' name='from_price' />
-                <input className={s.input_2} type="number" placeholder='to' name='to_price'/>
+                <input type="text" placeholder='from' name='from_price' />
+                <input type="text" placeholder='to' name='to_price' />
+                <button>Add</button>
             </form>
 
             <div className={s.discount_filtr}>
@@ -33,9 +41,8 @@ export default function Filtration() {
             </div>
 
             <form className={s.sort}
-            onSubmit={submit_sort}
+                onSubmit={submit_sort}
             >
-                
                 <label>Sort:</label>
                 <select name="sorts" defaultValue='' >
                     <option value='' disabled hidden>by default</option>
