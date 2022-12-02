@@ -123,7 +123,7 @@ function App() {
 
   const [showProducts, setShowProducts] = useState(products);
 
-  const checkClick = (check_discount) => {
+  const checkDiscount = (check_discount) => {
       let filter_products;
       if (check_discount) {
         setShowProducts(products);
@@ -131,7 +131,18 @@ function App() {
         filter_products = products.filter(product => product.discont_price !== 0.75);
         setShowProducts(filter_products);
       }
-    }
+  }
+  
+  const checkSort = (value_sort) => {
+      setShowProducts(prev => {
+        if (value_sort === 1) {
+          return [...prev].sort((a, b) => b.discont_price - a.discont_price)
+        } else if (value_sort === 2){ 
+          return [...prev].sort((a, b) => a.discont_price - b.discont_price)
+        }
+      })
+  }
+  
 
   useEffect(() => {
     setShowProducts(products)
@@ -145,7 +156,8 @@ function App() {
       shift_left,
       shift_right,
       setIsChecked, isChecked,
-      checkClick
+      checkDiscount,
+      checkSort
     }}>
       <Header />
 

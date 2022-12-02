@@ -25,6 +25,7 @@ export default function Product({ id, title, price, discont_price }) {
 
     return (
         <div className={s.wrapper}>
+
             <div className={s.product_container}>
                 <div className={s.product_img}>
                     <img src={picture} alt="photo_tools"/>
@@ -32,9 +33,11 @@ export default function Product({ id, title, price, discont_price }) {
                 <div className={s.product_price}>{block_price}</div>
                 <p>{title}</p>
             </div>
+            
             <div className={s.btn} onClick={add_to_basket}>
                 <AddToBasket/>
             </div>
+
         </div>
     )
 }

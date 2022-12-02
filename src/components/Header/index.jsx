@@ -9,7 +9,11 @@ export default function Nav() {
     const nav_list_ref = useRef();
 
     const nav_btn_click = () => {
-        nav_list_ref.current.classList.toggle(s.active);
+        nav_list_ref.current.classList.toggle(s.active)
+    }
+    
+    const nav_btn_click_clear = () => {
+        nav_list_ref.current.classList.remove(s.active)
     }
 
     return (
@@ -18,7 +22,7 @@ export default function Nav() {
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
                 <button className={s.btn_catalog}>Catalog</button>
             </div>
-            <div className={s.header_menu}>
+            <div className={s.header_menu} onDoubleClick={nav_btn_click_clear}>
                 <nav className={s.menu_body}>
                     <button onClick={nav_btn_click} className={s.burger_menu}><MenuOutlined className={s.icon_menu} /></button>
                     <ul ref={nav_list_ref} className={s.menu_list}>
