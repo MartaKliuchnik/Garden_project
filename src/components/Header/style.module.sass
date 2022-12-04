@@ -1,7 +1,7 @@
 @media(min-width: 576px)
     .header
         position: relative
-        height: 100px
+        height: 70px
         display: flex
         justify-content: space-between
         align-items: center
@@ -10,8 +10,11 @@
             align-items: center
             justify-content: center
             gap: 20px
-            &>.btn_catalog
+            &>a .header_logo
                 height: 50px
+                width: 50px
+            &>.btn_catalog
+                height: 40px
                 width: 130px
                 background: #339933
                 border: 2px solid #339933
@@ -25,9 +28,6 @@
                     color: #339933
                     background-color: #FFFFFF
                     border-radius: 1px solid #339933
-                &>.header_logo
-                    height: 72px
-                    width: 72px
         &>.header_menu
             display: flex
             flex-direction: row-reverse
@@ -37,43 +37,67 @@
             &>.menu_body
                 display: block
                 &>.burger_menu
+                    display: flex
+                    align-items: center
                     border: none
                     background-color: transparent
                     cursor: pointer
-                    &>.icon_menu
+                    transition: all 0.5s ease
+                    &>.icon_burger
+                        font-size: 30px
+                        display: block
+                        &:hover
+                            color: #339933
+                    &>.icon_close
+                        display: none
                         font-size: 30px
                         &:hover
                             color: #339933
+                &>.active
+                    &>.icon_burger
+                        display: none
+                    &>.icon_close
+                        display: block
                 &>.menu_list
                     position: absolute
+                    display: flex
+                    flex-direction: column
                     padding: 10px 30px
                     transform: translateX(150%)
                     right: 0px
                     top: 100%
                     transition: transform 0.5s ease
-                    z-index: 10
                     background-color: white
                     border-radius: 0px 0px 0px 5px
-                    &>li,a
+                    font-size: 20px
+                    z-index: 2
+                    &>a
                         color: black
                         text-decoration: none
                         font-weight: 500
                         list-style-type: none
                         cursor: pointer
                         padding: 7px 0
-                    &>li:hover
+                    &>a:hover
                         font-weight: 600
                         color: #339933
-                        &>a:hover
+                    &>.active
+                        font-weight: 600
+                        color: #339933
+                        &>a
                             font-weight: 600
                             color: #339933
-                &>.active
+                &>.active_link
                     transform: translateX(0)
             &>a
                 color: black
                 border: none
                 background-color: transparent
                 cursor: pointer
+                &.active
+                    &>.icon_bag
+                        font-weight: 600
+                        color: #339933
                 &>.icon_bag
                     font-size: 30px
                     &:hover
@@ -101,6 +125,7 @@
                     transform: translateX(0)
                     height: 50px
                     display: flex
+                    flex-direction: row
                     align-items: center
                     justify-content: space-between
                     gap: 20px

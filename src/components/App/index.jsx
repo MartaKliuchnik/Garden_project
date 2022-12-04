@@ -114,12 +114,6 @@ function App() {
     }
   }
 
-  // const new_array = (products_array) => {
-  //   products_array.map(product => (product.discont_price === 0.75 ? { ...product, final_price: price } : { ...product, final_price: discont_price }));
-  //   console.log(products_array)
-  // }
-  // new_array(); 
-
   window.addEventListener('resize', check_size);
 
   useEffect(() => {
