@@ -1,7 +1,5 @@
 import { Context } from "../../context";
 import { useState, useEffect, useRef } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
 import { Routes, Route } from 'react-router-dom';
 import PageCategories from "../../pages/PageCategories";
 import MainPage from "../../pages/MainPage";
@@ -10,6 +8,7 @@ import NotFoundPage from '../../pages/NotFoundPage';
 import PageProducts from "../../pages/PageProducts";
 import { get_all_categories } from "../../requests/categories";
 import { get_all_products } from '../../requests/products';
+import Layout from "../Layout";
 
 
 function App() {
@@ -178,17 +177,16 @@ function App() {
       checkSort,
       checkPrice
     }}>
-      <Header />
-
+      
       <Routes>
-        <Route path='/' element={<MainPage/>} />
-        <Route path='/all_categories' element={<PageCategories />} />
-        <Route path='/basket' element={<BasketPage />} />
-        <Route path='/all_products' element={<PageProducts/>}/>
-        <Route path='*' element={<NotFoundPage />} />
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<MainPage/>}/>
+          <Route path='all_categories' element={<PageCategories />} />
+          <Route path='basket' element={<BasketPage />} />
+          <Route path='all_products' element={<PageProducts/>}/>
+          <Route path='*' element={<NotFoundPage />} />
+        </Route>
       </Routes>
-
-      <Footer />
     </Context.Provider>
   );
 }
