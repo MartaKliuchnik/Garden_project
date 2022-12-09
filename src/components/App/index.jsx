@@ -6,18 +6,12 @@ import PageCategories from "../../pages/PageCategories";
 import MainPage from "../../pages/MainPage";
 import BasketPage from "../../pages/BasketPage";
 import NotFoundPage from '../../pages/NotFoundPage';
-// import PageProducts from "../../pages/PageProducts";
 import Layout from "../Layout";
 import ProductsContainer from "../ProductsContainer";
 import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
 
 function App() {
-
-  // const [categories, setCategories] = useState([]);
-  // const [products, setProducts] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
-
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
     
@@ -123,62 +117,10 @@ function App() {
 
   window.addEventListener('resize', check_size);
 
-  // let [showProducts, setShowProducts] = useState(products);
-
-  // const checkDiscount = (check_discount) => {
-  //     if (check_discount) {
-  //       setShowProducts(showProducts);
-  //     } else {
-  //       const filter_products = products.filter(product => product.discont_price !== 0.75);
-  //       setShowProducts(filter_products);
-  //     }
-  // }
-
-  // const checkSort = (value_sort) => {
-  //   showProducts = showProducts.map(product => (product.discont_price === 0.75)
-  //     ? { ...product, filtr_price: product.price }
-  //     : { ...product, filtr_price: product.discont_price });
-  //   setShowProducts(showProducts);
-
-  //     setShowProducts(prev => {
-  //       if (value_sort === 1) {
-  //         return [...prev].sort((a, b) => b.filtr_price - a.filtr_price)
-  //       } else if (value_sort === 2) { 
-  //         return [...prev].sort((a, b) => a.filtr_price - b.filtr_price)
-  //       }
-  //     })
-  //   }
-
-  // const checkPrice = (from_price, to_price) => {
-  //   to_price = (to_price === 0) ? showProducts.reduce((max, { price }) => max < price ? price : max, 0) : to_price;
-  //   setShowProducts(prev => {
-  //     return [...prev].filter(product =>
-  //       ( ((product.discont_price === 0.75) ? product.price : product.discont_price >= from_price) &&
-  //         ((product.discont_price === 0.75) ? product.price : product.discont_price <= to_price)) 
-  //       ? product
-  //       : ''
-  //   )
-  //   })
-  // }
-  
-  // useEffect(() => {
-  //   setShowProducts(products)
-  // }, [products]);
-
-
   return ( 
     <Context.Provider value={{
-      // products,
       categories,
       slider_container,
-      // showProducts,
-      shift_left,
-      shift_right,
-      // setIsChecked, isChecked,
-      // checkDiscount,
-      // checkSort,
-      // checkPrice,
-      // setShowProducts
     }}>
       
       <Routes>

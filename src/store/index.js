@@ -4,11 +4,13 @@ import { categoriesReducer } from './reducer/categoriesReducer';
 import thunk from 'redux-thunk';
 import { productsReducer } from './reducer/productsReducer';
 import { descriptionReducer } from './reducer/descriptionReducer';
+import { filterReducer } from './reducer/filterReducer';
 
 const rootReducer = combineReducers({
     categories: categoriesReducer,
     products: productsReducer,
     product: descriptionReducer,
+    filtration: filterReducer,
     basket: basketReducer
 })
 
