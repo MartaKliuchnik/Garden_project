@@ -1,7 +1,9 @@
-import React, { useContext } from 'react';
+import React  from 'react';
+import { useContext } from 'react';
 import { Context } from '../../context';
 import Category from '../Category';
-import s from './style.module.sass'
+import s from './style.module.sass';
+
 
 export default function AllCategories({type}) {
 

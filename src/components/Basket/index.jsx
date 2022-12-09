@@ -9,7 +9,7 @@ import OrderForm from '../UI/OrderForm';
 
 export default function Basket() {
 
-    const products_basket = useSelector(state => state);
+    const products_basket = useSelector(state => state.basket);
     
     const products_array = products_basket.map(product => <BasketCard key={product.id} {...product} />)
     const empty_basket =

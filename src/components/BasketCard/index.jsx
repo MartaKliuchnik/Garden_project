@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './style.module.sass';
 import product from '../BasketCard/media/product_basket.png';
-import { deleteBasketCard, incrementCountProductAtTheBasket,decrementCountProductAtTheBasket } from '../../store/reducer/basketReducer';
+import { deleteBasketCard, incrementCountProductAtTheBasket, decrementCountProductAtTheBasket } from '../../store/reducer/basketReducer';
 import { CloseOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 

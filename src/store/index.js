@@ -1,4 +1,15 @@
-import { createStore } from 'redux';
-import {basketReducer} from '../store/reducer/basketReducer'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { basketReducer } from './reducer/basketReducer';
+import { categoriesReducer } from './reducer/categoriesReducer';
+import thunk from 'redux-thunk';
+import { productsReducer } from './reducer/productsReducer';
+import { descriptionReducer } from './reducer/descriptionReducer';
 
-export const store = createStore(basketReducer);
+const rootReducer = combineReducers({
+    categories: categoriesReducer,
+    products: productsReducer,
+    product: descriptionReducer,
+    basket: basketReducer
+})
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));

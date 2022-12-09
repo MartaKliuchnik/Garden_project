@@ -29,9 +29,9 @@ export default function Nav() {
                         <CloseOutlined className={s.icon_close}/>
                     </button>
                     <div ref={nav_list_ref} className={s.menu_list} onClick={nav_btn_click}>
-                        <NavLink className={checkClass} to='/all_categories'>Categories</NavLink>
-                        <NavLink className={checkClass} to='/basket'>Coupon</NavLink>
-                        <NavLink className={checkClass} to='all_products'>Promotions</NavLink>
+                        <NavLink className={checkClass} to='all_categories'>Categories</NavLink>
+                        <NavLink className={checkClass} to='basket'>Coupon</NavLink>
+                        {/* <NavLink className={checkClass} to='all_products'>Promotions</NavLink> */}
                         <a href="#contacts">Contacts</a>
                     </div>
                 </nav>

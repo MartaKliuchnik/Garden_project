@@ -1,0 +1,53 @@
+@media(min-width: 576px)
+    .wrapper
+        padding: 150px 30px
+        display: grid
+        gap: 34px
+        &>.subheader
+            font-size: 36px
+            font-weight: 600
+        &>.description
+            height: 710px
+            display: flex
+            gap: 50px
+            justify-content: center
+            &>.product_img
+                width: 60%
+                height: 100%
+                object-fit: contain
+                &>img
+                    width: 100%
+                    height: 100%
+            &>.product_info
+                width: 30%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                gap: 40px
+                &>.price_block
+                    display: flex
+                    align-items: flex-end
+                    justify-content: space-between
+                    &>.clear_price
+                        font-weight: 600
+                        font-size: 22px
+                    &>.discount_price
+                        font-weight: 600
+                        font-size: 22px
+                    &>.price
+                        font-size: 12px
+                        font-weight: 500
+                        text-decoration: line-through
+                        color: #8B8B8B
+                    &>.discount
+                        font-size: 12px
+                        font-weight: 600
+                        color: #FF32A1
+                &>.description_block
+                    display: flex
+                    flex-direction: column
+                    gap: 15px
+                    max-height: 300px
+                    &>.description_container
+                        width: 100%
+                        overflow: scroll
