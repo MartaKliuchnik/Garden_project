@@ -94,14 +94,18 @@
                 border: none
                 background-color: transparent
                 cursor: pointer
+                position: relative
                 &.active
-                    &>.icon_bag
-                        font-weight: 600
-                        color: #339933
+                    color: #339933
+                    font-weight: 600
                 &>.icon_bag
                     font-size: 30px
                     &:hover
                         color: #339933
+                &>.count_basket_prod
+                    position: absolute
+                    top: -5px
+                    right: -10px
 
 @media(min-width: 768px)
     .header

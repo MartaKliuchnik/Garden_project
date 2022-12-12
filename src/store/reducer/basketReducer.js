@@ -4,11 +4,13 @@ const ADD_TO_BASKET = 'ADD_TO_BASKET';
 const DELETE_BASKET_CARD = 'DELETE_BASKET_CARD';
 const INCREMENT_COUNT = 'INCREASE_COUNT';
 const DECREMENT_COUNT = 'DECREASE_COUNT';
+const CLEAR_BASKET = 'CLEAR_BASKET';
 
 export const add_to_basket_action = (payload) => ({ type: ADD_TO_BASKET, payload });
-export const deleteBasketCard = (payload) => ({ type: DELETE_BASKET_CARD, payload });
-export const incrementCountProductAtTheBasket = (payload) => ({ type: INCREMENT_COUNT, payload });
-export const decrementCountProductAtTheBasket = (payload) => ({ type: DECREMENT_COUNT, payload });
+export const delete_basket_card_action = (payload) => ({ type: DELETE_BASKET_CARD, payload });
+export const increment_count_product_at_the_basket_action = (payload) => ({ type: INCREMENT_COUNT, payload });
+export const decrement_count_product_at_the_basket_action = (payload) => ({ type: DECREMENT_COUNT, payload });
+export const clear_basket_action = () => ({ type: CLEAR_BASKET });
 
 const checkCard = (state, product) => {
     const productInState = state.find(({ id }) => id === product.id);
@@ -49,8 +51,9 @@ export const basketReducer = (state = defaultState, action) => {
         return increment(state, action.payload)
     } else if (action.type === DECREMENT_COUNT) {
         return decrement(state, action.payload)
-    }
-    else {
+    } else if (action.type === CLEAR_BASKET) {
+        return defaultState
+    } else {
         return state
     }
 }

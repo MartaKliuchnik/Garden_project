@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import logo from './media/nav_logo.png';
 import s from './style.module.sass';
 import { MenuOutlined, ShoppingOutlined, CloseOutlined } from '@ant-design/icons';
@@ -6,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Nav() {
 
+    const products_basket = useSelector(state => state.basket);
     const nav_list_ref = useRef();
     const nav_btn = useRef();
 
@@ -14,7 +16,13 @@ export default function Nav() {
         nav_btn.current.classList.toggle(s.active);
     }
 
-    const checkClass = ({isActive}) => isActive ? s.active : ''
+    const checkClass = ({ isActive }) => isActive ? s.active : '';
+
+    const count_products = products_basket.reduce((sum, { count }) => sum + count, 0);
+    
+    const element_count = count_products === 0 
+        ? ''
+        : <span className={s.count_basket_prod}>{count_products}</span>
 
     return (
         <div className={[s.header, 'wrapper'].join(' ')}>
@@ -35,7 +43,7 @@ export default function Nav() {
                         <a href="#contacts">Contacts</a>
                     </div>
                 </nav>
-                <NavLink className={checkClass} to='/basket'><ShoppingOutlined className={s.icon_bag} /></NavLink> 
+                <NavLink className={checkClass} to='/basket'><ShoppingOutlined className={s.icon_bag} /> {element_count} </NavLink> 
             </div>
         </div>
     )
