@@ -13,6 +13,7 @@ import { loadCategories } from '../../store/asyncActions/categories';
 import AuthentificationPage from "../../pages/AuthentificationPage";
 
 function App() {
+  const [modalActive, setModalActive] = useState(false);
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
     
@@ -123,7 +124,9 @@ function App() {
       categories,
       slider_container,
       shift_left,
-      shift_right
+      shift_right,
+      modalActive,
+      setModalActive
     }}>
       
       <Routes>

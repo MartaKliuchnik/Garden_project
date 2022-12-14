@@ -4,8 +4,11 @@ import logo from './media/nav_logo.png';
 import s from './style.module.sass';
 import { MenuOutlined, ShoppingOutlined, CloseOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../../context';
 
 export default function Nav() {
+    const { setModalActive } = useContext(Context);
 
     const products_basket = useSelector(state => state.basket);
     const nav_list_ref = useRef();
@@ -28,7 +31,9 @@ export default function Nav() {
         <div className={[s.header, 'wrapper'].join(' ')} id='top'>
             <div className={s.header_main}>
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
-                <NavLink to='authentification'><button className={s.btn_log}>Log in</button></NavLink>
+                <NavLink to='authentification'><button className={s.btn_log}
+                    onClick={() => setModalActive(true)}
+                >Log in</button></NavLink>
             </div>
             <div className={s.header_menu} >
                 <nav className={s.menu_body}>
