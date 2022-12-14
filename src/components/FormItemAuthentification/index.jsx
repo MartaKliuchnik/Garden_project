@@ -4,7 +4,7 @@ import FormInputAuthentification from '../FormInputAuthentification';
 import s from './style.module.sass';
 import { useForm } from 'react-hook-form';
 
-export default function FormItemAuthentification({title, button, info_text, form_type}) {
+export default function FormItemAuthentification({title, button, info_text, form_type, info_text_additional}) {
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onBlur'
@@ -36,29 +36,39 @@ export default function FormItemAuthentification({title, button, info_text, form
     return (
         <form className={s.form_item} onSubmit={handleSubmit(submit)}>
             <p className={s.form_title}>{title}</p>
+            <p className={s.info_text}>{info_text_additional}</p>
             <FormInputAuthentification
                 {...email_register}
                 placeholder='Email'
                 name='email'
                 type='email' />
-            
+                
             <div>
                 {errors?.email && <p>{errors?.email?.message}</p>}
             </div>
 
-            <FormInputAuthentification
-                {...password_register}
-                placeholder='Password'
-                name='password'
-                type='password' />
-            
-            <div>
-                {errors?.password && <p>{errors?.password?.message}</p>}
-            </div>
+            {['registrations','login'].includes(form_type)
+                ? <>
+                <FormInputAuthentification
+                    {...password_register}
+                    placeholder='Password'
+                    name='password'
+                    type='password' />
+                
+                    <div>
+                        {errors?.password && <p>{errors?.password?.message}</p>}
+                    </div>
+                    </>
+                : ''
+            }
             
             <p className={s.info_text}>{info_text}</p>
             <FormButtonAuthentification color='green'>{button.submit}</FormButtonAuthentification>
-            <FormButtonAuthentification color='white'>{button.redirect}</FormButtonAuthentification>
+            
+            {['registrations','login'].includes(form_type)
+                    ? <FormButtonAuthentification color='white'>{button.redirect}</FormButtonAuthentification>
+                    : ''
+            }
         </form>
     )
 }

@@ -18,6 +18,13 @@ export default function AuthentificationPage() {
                 form_type = {'login'}
             />
 
+            <FormItemAuthentification
+                title={'Reset password'}
+                button={{ submit: 'Reset'}}
+                info_text={'The temporary password is valid for 24 hours.'}
+                form_type={'reset_password'}
+                info_text_additional={'To receive a temporary password, you must enter the email address you provided during registration.'}
+            />
         </div>
     )
 }
