@@ -1,7 +1,7 @@
 import { Context } from "../../context";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import PageCategories from "../../pages/PageCategories";
 import MainPage from "../../pages/MainPage";
 import BasketPage from "../../pages/BasketPage";
@@ -10,12 +10,16 @@ import Layout from "../Layout";
 import ProductsContainer from "../ProductsContainer";
 import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
-import AuthentificationPage from "../../pages/AuthentificationPage";
+import FormModal from "../FormModal";
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
+
+  const location = useLocation();
+  console.log(location)
+  const background = location.state && location.state.background;
     
     useEffect(() => {
       dispatch(loadCategories())
@@ -120,6 +124,7 @@ function App() {
   window.addEventListener('resize', check_size);
 
   return ( 
+    
     <Context.Provider value={{
       categories,
       slider_container,
@@ -129,7 +134,8 @@ function App() {
       setModalActive
     }}>
       
-      <Routes>
+      
+      <Routes location={background || location}>
         <Route path='/' element={<Layout/>}>
           <Route index element={<MainPage/>}/>
           <Route path='/all_categories' element={<PageCategories />} />
@@ -141,12 +147,26 @@ function App() {
           <Route path='/all_categories/categories/:id_category/product/:id_product' element={<PageProductDescription/>}/>
           <Route path='/categories/:id_category/product/:id_product' element={<PageProductDescription />} />
 
-          <Route path='/authentification' element={<AuthentificationPage/>}/>
+          <Route path='registration' 
+            element={<FormModal type_form='registration' />}/>
+          <Route path='/login' 
+            element={<FormModal type_form='login' />} />
+          <Route path='/reset_password' 
+            element={<FormModal type_form='reset_password' />} />
           
           <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>
-      
+      {background && (
+        <Routes>
+          <Route path='registration' 
+            element={<FormModal type_form='registration' />}/>
+          <Route path='login' 
+            element={<FormModal type_form='login' />} />
+          <Route path='reset_password' 
+            element={<FormModal type_form='reset_password' />} />
+        </Routes>
+      )}
     </Context.Provider>
   );
 }

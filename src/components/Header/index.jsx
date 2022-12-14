@@ -6,13 +6,18 @@ import { MenuOutlined, ShoppingOutlined, CloseOutlined } from '@ant-design/icons
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../context';
+import { useLocation } from 'react-router-dom';
 
 export default function Nav() {
     const { setModalActive } = useContext(Context);
+    
 
     const products_basket = useSelector(state => state.basket);
     const nav_list_ref = useRef();
     const nav_btn = useRef();
+
+    const location = useLocation();  
+    // const background = location.state && location.state.background;
 
     const nav_btn_click = () => {
         nav_list_ref.current.classList.toggle(s.active_link);
@@ -31,9 +36,12 @@ export default function Nav() {
         <div className={[s.header, 'wrapper'].join(' ')} id='top'>
             <div className={s.header_main}>
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
-                <NavLink to='authentification'><button className={s.btn_log}
-                    onClick={() => setModalActive(true)}
-                >Log in</button></NavLink>
+                <NavLink to='/registration' state={{ background: location }}>
+                    <button className={s.btn_log}
+                        onClick={() => setModalActive(true)}>
+                        Log in
+                    </button>
+                </NavLink>
             </div>
             <div className={s.header_menu} >
                 <nav className={s.menu_body}>

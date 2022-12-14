@@ -3,9 +3,12 @@ import FormButtonAuthentification from '../../components/FormButtonAuthentificat
 import FormInputAuthentification from '../FormInputAuthentification';
 import s from './style.module.sass';
 import { useForm } from 'react-hook-form';
+import { Link, useLocation } from 'react-router-dom';
 
-export default function FormItemAuthentification({title, button, info_text, form_type, info_text_additional}) {
+export default function FormItemAuthentification({title, button, info_text, form_type, info_text_additional, link}) {
 
+    const location = useLocation();
+    
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onBlur'
     });
@@ -37,11 +40,12 @@ export default function FormItemAuthentification({title, button, info_text, form
         <form className={s.form_item} onSubmit={handleSubmit(submit)}>
             <p className={s.form_title}>{title}</p>
             <p className={s.info_text}>{info_text_additional}</p>
+            
             <FormInputAuthentification
                 {...email_register}
                 placeholder='Email'
                 name='email'
-                type='email' />
+                type='email'/>
                 
             <div>
                 {errors?.email && <p>{errors?.email?.message}</p>}
@@ -53,8 +57,8 @@ export default function FormItemAuthentification({title, button, info_text, form
                     {...password_register}
                     placeholder='Password'
                     name='password'
-                    type='password' />
-                
+                    type='password'
+                />
                     <div>
                         {errors?.password && <p>{errors?.password?.message}</p>}
                     </div>
@@ -62,11 +66,22 @@ export default function FormItemAuthentification({title, button, info_text, form
                 : ''
             }
             
-            <p className={s.info_text}>{info_text}</p>
+            {
+                form_type === 'login'
+                    ? 
+                    <Link to={'/reset_password'} state={{ background: '/' }}>
+                        <p className={s.info_text}>{info_text}</p>
+                    </Link>
+                    : <p className={s.info_text}>{info_text}</p>
+            }
+            
+
             <FormButtonAuthentification color='green'>{button.submit}</FormButtonAuthentification>
             
             {['registrations','login'].includes(form_type)
-                    ? <FormButtonAuthentification color='white'>{button.redirect}</FormButtonAuthentification>
+                ?   <Link to={link} state={{ background: '/' }}>
+                        <FormButtonAuthentification color='white'>{button.redirect}</FormButtonAuthentification>
+                    </Link>
                     : ''
             }
         </form>
