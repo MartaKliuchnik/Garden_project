@@ -10,6 +10,7 @@ import Layout from "../Layout";
 import ProductsContainer from "../ProductsContainer";
 import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
+import AuthentificationPage from "../../pages/AuthentificationPage";
 
 function App() {
   const categories = useSelector(state => state.categories);
@@ -136,6 +137,8 @@ function App() {
 
           <Route path='/all_categories/categories/:id_category/product/:id_product' element={<PageProductDescription/>}/>
           <Route path='/categories/:id_category/product/:id_product' element={<PageProductDescription />} />
+
+          <Route path='/authentification' element={<AuthentificationPage/>}/>
           
           <Route path='*' element={<NotFoundPage />} />
         </Route>

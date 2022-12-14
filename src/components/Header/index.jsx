@@ -28,7 +28,7 @@ export default function Nav() {
         <div className={[s.header, 'wrapper'].join(' ')} id='top'>
             <div className={s.header_main}>
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
-                <button className={s.btn_catalog}>Catalog</button>
+                <NavLink to='authentification'><button className={s.btn_log}>Log in</button></NavLink>
             </div>
             <div className={s.header_menu} >
                 <nav className={s.menu_body}>
