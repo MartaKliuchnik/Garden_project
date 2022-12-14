@@ -8,14 +8,14 @@ export default function Contacts() {
             <p className={s.subheader} id='contacts'>Contacts</p>
             <p>+7 999 999 99 99</p>
             <div className={s.social_network_icons}>
-                <div className={s.instagram_icon}>
+                <a href='https://www.instagram.com/' className={s.instagram_icon}>
                     <InstagramOutlined />
                     <p>Instagram</p>
-                </div>
-                <div className={s.whats_up_icon}>
+                </a>
+                <a href='https://web.whatsapp.com/' className={s.whats_up_icon}>
                     <WhatsAppOutlined />
                     <p>WhatsApp</p>
-                </div>
+                </a>
             </div>
         </div>
     )
