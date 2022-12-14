@@ -121,6 +121,8 @@ function App() {
     <Context.Provider value={{
       categories,
       slider_container,
+      shift_left,
+      shift_right
     }}>
       
       <Routes>
