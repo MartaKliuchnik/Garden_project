@@ -4,7 +4,7 @@ import FormInputAuthentification from '../FormInputAuthentification';
 import s from './style.module.sass';
 import { useForm } from 'react-hook-form';
 
-export default function FormItemAuthentification() {
+export default function FormItemAuthentification({title, button, info_text, form_type}) {
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onBlur'
@@ -35,7 +35,7 @@ export default function FormItemAuthentification() {
 
     return (
         <form className={s.form_item} onSubmit={handleSubmit(submit)}>
-            <p className={s.form_title}>Registration</p>
+            <p className={s.form_title}>{title}</p>
             <FormInputAuthentification
                 {...email_register}
                 placeholder='Email'
@@ -56,9 +56,9 @@ export default function FormItemAuthentification() {
                 {errors?.password && <p>{errors?.password?.message}</p>}
             </div>
             
-            <p className={s.info_text}>By registering on the site, you agree to our Rules and Privacy Policy and agree to receive newsletters.</p>
-            <FormButtonAuthentification color='green'>Registration</FormButtonAuthentification>
-            <FormButtonAuthentification color='white'>Login</FormButtonAuthentification>
+            <p className={s.info_text}>{info_text}</p>
+            <FormButtonAuthentification color='green'>{button.submit}</FormButtonAuthentification>
+            <FormButtonAuthentification color='white'>{button.redirect}</FormButtonAuthentification>
         </form>
     )
 }
