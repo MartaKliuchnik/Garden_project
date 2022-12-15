@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import s from './style.module.sass';
 import Product from '../Product';
 import { useParams } from 'react-router-dom';
 import Filtration from '../Filtration';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadProducts } from '../../store/asyncActions/products';
+import { useContext } from 'react';
+import { Context } from '../../context';
+
 
 export default function ProductsContainer() {
     
     const {id_category} = useParams();
     const dispatch = useDispatch();
     const showProducts = useSelector(state => state.filtration);
+
+    const { categories } = useContext(Context);
+    const current_category = categories.find(el => el.id === +id_category);
     
     useEffect(() => {
-        dispatch(loadProducts(id_category))
+        dispatch(loadProducts(id_category));
     }, []);
-
     
     return (
         <div className={['wrapper', s.wrapper].join(' ')}>
             <div className={s.subheader}>
-                <p>Инструменты и инвентарь</p>
+                <p>{current_category?.title}</p>
             </div>
             <div className={s.filtration}>
                 <Filtration/>

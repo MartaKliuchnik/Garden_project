@@ -1,6 +1,6 @@
 const defaultState = [];
 
-export const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
+const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
 
 export const load_categories_action = (payload) => ({ type: LOAD_CATEGORIES, payload });
 

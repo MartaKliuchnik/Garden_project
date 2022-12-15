@@ -47,7 +47,7 @@ export default function FormModal({type_form}) {
                         info_text_additional={'To receive a temporary password, you must enter the email address you provided during registration.'}
                     />
                 </div>
-
+                
             </div>
         </div>
     )
