@@ -11,6 +11,7 @@ import ProductsContainer from "../ProductsContainer";
 import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
 import FormModal from "../FormModal";
+import { loadProducts } from "../../store/asyncActions/products";
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
@@ -18,13 +19,9 @@ function App() {
   const dispatch = useDispatch();
 
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
   const background = location.state && location.state.background;
-    
-    useEffect(() => {
-      dispatch(loadCategories())
-    }, [])
-
+  
   const slider_container = useRef();
 
   let slide_number = 0;
@@ -121,6 +118,11 @@ function App() {
     }
   }
 
+    useEffect(() => {
+      dispatch(loadCategories());
+      dispatch(loadProducts())
+    }, [])
+  
   window.addEventListener('resize', check_size);
 
   return ( 

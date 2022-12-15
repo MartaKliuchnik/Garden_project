@@ -1,5 +1,6 @@
 import { load_products_action } from '../reducer/productsReducer';
 import { load_products_for_filtration_action } from '../reducer/filterReducer';
+import { load_promotions_action } from '../reducer/promotionsReducer';
 
 export const loadProducts = (id) => {
     return async dispatch => {
@@ -8,5 +9,6 @@ export const loadProducts = (id) => {
         const payload = data.filter(({ categoryId }) => categoryId === +id);
         dispatch(load_products_action(payload));
         dispatch(load_products_for_filtration_action(payload));
+        dispatch(load_promotions_action(data));
     }
 }
