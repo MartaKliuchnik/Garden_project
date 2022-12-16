@@ -5,12 +5,14 @@ const CHECK_DISCOUNT = 'CHECK_DISCOUNT';
 const CHECK_SORT = 'CHECK_SORT';
 const CHECK_PRICE = 'CHECK_PRICE';
 const LOAD_ALL_PRODUCTS = 'LOAD_ALL_PRODUCTS';
+const SEARCH_PRODUCT = 'SEARCH_PRODUCT';
 
 export const load_products_for_filtration_action = (payload) => ({ type: LOAD_FILTRATION_PRODUCTS, payload });
 export const load_all_products_for_filtration_action = () => ({ type: LOAD_ALL_PRODUCTS });
 export const check_discount_action = (payload) => ({ type: CHECK_DISCOUNT, payload });
 export const check_sort_action = (payload) => ({type: CHECK_SORT, payload});
-export const check_price_action = (payload) => ({type: CHECK_PRICE, payload});
+export const check_price_action = (payload) => ({ type: CHECK_PRICE, payload });
+export const search_product_action = (payload) => ({ type: SEARCH_PRODUCT, payload });
 
 const checkDiscount = (check_discount, products) => {
     if (check_discount) {
@@ -23,6 +25,7 @@ const checkDiscount = (check_discount, products) => {
 }
 
 const checkSort = (value_sort, products) => {
+    console.log(value_sort, products)
     products = products.map(product => (product.discont_price === 0.75)
         ? { ...product, filtr_price: product.price }
         : { ...product, filtr_price: product.discont_price });
@@ -36,12 +39,10 @@ const checkSort = (value_sort, products) => {
     
 const checkPrice = (sort_prices, products) => {
     let { to_price, from_price, change_prices } = sort_prices;
-    console.log(from_price);
-    console.log(to_price);
-    console.log(change_prices);
+    console.log(from_price, to_price, change_prices);
 
     to_price = (to_price === 0)
-        ? products.reduce((max, { price }) => max < price ? price : max, 0)
+        ? defaultState.reduce((max, { price }) => max < price ? price : max, 0)
         : to_price;
     
     if (!change_prices) {
@@ -62,6 +63,13 @@ const checkPrice = (sort_prices, products) => {
     }
 }
 
+const checkSearch = (search_value, products) => {
+    console.log(search_value, products)
+    const filteredProducts = products.filter(product => product.title.toLowerCase().startsWith(search_value));
+    console.log(filteredProducts)
+    return [...filteredProducts]
+}
+
 export const filterReducer = (state = defaultState, action) => {
     if (action.type === LOAD_FILTRATION_PRODUCTS) {
         defaultState = action.payload;
@@ -74,6 +82,8 @@ export const filterReducer = (state = defaultState, action) => {
         return checkPrice(action.payload, state)
     } else if (action.type === LOAD_ALL_PRODUCTS) {
         return [...defaultState]
+    } else if (action.type === SEARCH_PRODUCT) {
+        return checkSearch(action.payload, state)
     }
     else {
         return state
