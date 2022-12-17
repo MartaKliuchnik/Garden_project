@@ -1,17 +1,34 @@
 @media (min-width: 576px)
     .wrapper
-        padding-top: 70px
-        &>.subheader>p
+        padding-top: 40px
+        .subheader
+            display: flex
             margin-bottom: 40px
-            font-weight: 700
-            font-size: 20px
-        &>.filtration
+            align-items: flex-end
+            gap: 20px
+            .count_product
+                color: #8b8b8b
+                font-size: 15px
+            &>p
+                font-weight: 700
+                font-size: 20px
+                color: #242424
+        .filtration
             margin-bottom: 34px
-        &>.products_container
+        .products_container
             display: flex
             align-items: center
             flex-direction: column
             gap: 20px
+            .empty_request
+                margin-top: 10px 
+                margin-bottom: 100px
+                grid-column-start: 1
+                grid-column-end: 4
+                text-align: center
+                font-weight: 700
+                font-size: 20px
+                color: #242424
 
 @media(min-width: 768px)
     .wrapper

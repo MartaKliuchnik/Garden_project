@@ -33,7 +33,7 @@ export default function Nav() {
         : <span className={s.count_basket_prod}>{count_products}</span>
 
     return (
-        <div className={[s.header, 'wrapper'].join(' ')} id='top'>
+        <div className={['wrapper', s.header].join(' ')} id='top'>
             <div className={s.header_main}>
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
                 <NavLink to='/registration' state={{ background: location }}>

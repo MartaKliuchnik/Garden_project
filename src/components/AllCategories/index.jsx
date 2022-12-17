@@ -12,7 +12,7 @@ export default function AllCategories({type}) {
     return (
         <div className={[s.categories_container, s[type]].join(' ')}>
             {
-                categories.map(el => <Category key={el.id} {...el}/>)
+                categories.map(el => <Category key={el.id} {...el} type={type} />)
             }
         </div>
     )

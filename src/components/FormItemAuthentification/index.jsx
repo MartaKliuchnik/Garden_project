@@ -70,7 +70,11 @@ export default function FormItemAuthentification({title, button, info_text, form
                 form_type === 'login'
                     ? 
                     <Link to={'/reset_password'} state={{ background: '/' }}>
-                        <p className={s.info_text}>{info_text}</p>
+                        <p
+                            className={s.info_text}
+                            style={{ textDecoration: 'underline', color: '#339933' }}>
+                            {info_text}
+                        </p>
                     </Link>
                     : <p className={s.info_text}>{info_text}</p>
             }
