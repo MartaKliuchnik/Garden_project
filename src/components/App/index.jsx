@@ -148,17 +148,16 @@ function App() {
 
           <Route path='/all_categories/categories/:id_category/product/:id_product' element={<PageProductDescription/>}/>
           <Route path='/categories/:id_category/product/:id_product' element={<PageProductDescription />} />
+          <Route path='/product/:id_product' element={<PageProductDescription />} />
 
-          <Route path='registration' 
-            element={<FormModal type_form='registration' />}/>
-          <Route path='/login' 
-            element={<FormModal type_form='login' />} />
-          <Route path='/reset_password' 
-            element={<FormModal type_form='reset_password' />} />
+          <Route path='registration' element={<FormModal type_form='registration' />}/>
+          <Route path='/login' element={<FormModal type_form='login' />} />
+          <Route path='/reset_password' element={<FormModal type_form='reset_password' />} />
           
           <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>
+
       {background && (
         <Routes>
           <Route path='registration' 

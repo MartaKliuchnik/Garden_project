@@ -1,4 +1,7 @@
-const defaultState = [];
+const read_local = () => JSON.parse(localStorage.getItem('basket')) ?? [];
+const save_local = (state) => localStorage.setItem('basket', JSON.stringify(state));
+
+const defaultState = read_local();
 
 const ADD_TO_BASKET = 'ADD_TO_BASKET';
 const DELETE_BASKET_CARD = 'DELETE_BASKET_CARD';
@@ -16,43 +19,53 @@ const checkCard = (state, product) => {
     const productInState = state.find(({ id }) => id === product.id);
     if (productInState) {
         productInState.count++;
+        save_local(state)
         return [...state]
     } else {
-        return [...state, {
+        state = [...state, {
             ...product,
             count: 1
-        }]
+        }];
+        save_local(state)
+        return [...state]
     }
 }
 
 const increment = (state, payload) => {
     const current_product = state.find(({ id }) => id === payload);
-        current_product.count++;
-        return [...state]
+    current_product.count++;
+    save_local(state);
+    return [...state]
 }
 
-export const decrement = (state, payload) => {
+const decrement = (state, payload) => {
     const current_product = state.find(({ id }) => id === payload);
     if (current_product.count === 1) {
-        return state.filter(({ id }) => id !== payload);
+        state = state.filter(({ id }) => id !== payload);
+        save_local(state);
+        return [...state]
     } else {
         current_product.count--;
+        save_local(state);
         return [...state]
     }
 }
 
 export const basketReducer = (state = defaultState, action) => {
     if (action.type === ADD_TO_BASKET) {
-        console.log(action.payload)
         return checkCard(state, action.payload)
     } else if (action.type === DELETE_BASKET_CARD) {
-        return state.filter(product => product.id !== action.payload)
+        state = state.filter(product => product.id !== action.payload)
+        save_local(state)
+        return state
     } else if (action.type === INCREMENT_COUNT) {
         return increment(state, action.payload)
     } else if (action.type === DECREMENT_COUNT) {
         return decrement(state, action.payload)
     } else if (action.type === CLEAR_BASKET) {
-        return defaultState
+        state = [];
+        save_local(state)
+        return [...state]
     } else {
         return state
     }

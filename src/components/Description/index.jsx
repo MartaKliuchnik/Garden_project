@@ -19,7 +19,7 @@ export default function Description({ product }) {
 				<p className={s.clear_price}>{price}€</p>
 			</>
 		) : (
-			<div class={s.price_block}>
+			<div className={s.price_block}>
 				<p className={s.discount_price}>{discont_price}€</p>
 				<p className={s.price}>{price}€</p>
 				<p className={s.discount}>
@@ -37,7 +37,7 @@ export default function Description({ product }) {
 				</div>
 				<div className={s.product_info}>
 					<div className={s.price_and_btn_to_basket_container}>
-						<p>{block_price}</p>
+						<div>{block_price}</div>
 						<AddToBasketInDescription onClick={add_to_basket} />
 					</div>
 					<div className={s.description_block}>

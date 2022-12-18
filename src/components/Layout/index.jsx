@@ -20,13 +20,13 @@ export default function Layout() {
 	window.addEventListener('scroll', check_scroll);
 
 	return (
-		<div className={s.wrapper}>
+		<>
 			<Header />
 			<Outlet />
 			<Footer />
 			<div id='btn_scroll' className={['wrapper', s.btn_scroll].join(' ')}>
 				<ButtonQuickNav />
 			</div>
-		</div>
+		</>
 	);
 }
