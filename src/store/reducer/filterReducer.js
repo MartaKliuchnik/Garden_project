@@ -1,4 +1,8 @@
+const read_local = () => JSON.parse(localStorage.getItem('show_products')) ?? [];
+const save_local = (state) => localStorage.setItem('show_products', JSON.stringify(state));
+
 let defaultState = [];
+let showProducts = read_local();
 
 const LOAD_FILTRATION_PRODUCTS = 'LOAD_FILTRATION_PRODUCTS';
 const CHECK_DISCOUNT = 'CHECK_DISCOUNT';
@@ -16,64 +20,73 @@ export const search_product_action = (payload) => ({ type: SEARCH_PRODUCT, paylo
 
 const checkDiscount = (check_discount, products) => {
     if (check_discount) {
-        const result = defaultState.filter(product => product.discont_price === 0.75);
-        return [...products, ...result]
+        const result = showProducts.filter(product => product.discont_price === 0.75);
+        products = [...products, ...result];
+        save_local(products)
+        return [...products]
     } else {
         const filter_products = products.filter(product => product.discont_price !== 0.75);
+        save_local(filter_products);
         return [...filter_products]
     }
 }
 
 const checkSort = (value_sort, products) => {
-    console.log(value_sort, products)
     products = products.map(product => (product.discont_price === 0.75)
         ? { ...product, filtr_price: product.price }
         : { ...product, filtr_price: product.discont_price });
     
-        if (value_sort === 1) {
-            return [...products.sort((a, b) => b.filtr_price - a.filtr_price)]
-        } else if (value_sort === 2) {
-            return [...products.sort((a, b) => a.filtr_price - b.filtr_price)]
-        }
+    if (value_sort === 1) {
+        products = [...products.sort((a, b) => b.filtr_price - a.filtr_price)]
+        save_local(products)
+        return [...products]
+    } else if (value_sort === 2) {
+        products = [...products.sort((a, b) => a.filtr_price - b.filtr_price)];
+        save_local(products)
+        return [...products]
+    }
 }
     
 const checkPrice = (sort_prices, products) => {
     let { to_price, from_price, change_prices } = sort_prices;
-    console.log(from_price, to_price, change_prices);
-
     to_price = (to_price === 0)
         ? defaultState.reduce((max, { price }) => max < price ? price : max, 0)
         : to_price;
     
     if (!change_prices) {
-        return [...products.filter(product =>
+        showProducts = [...products.filter(product =>
             (((product.discont_price === 0.75) ? product.price : product.discont_price >= from_price) &&
                 ((product.discont_price === 0.75) ? product.price : product.discont_price <= to_price))
                 ? product
                 : ''
         )]
+        save_local(showProducts);
+        return showProducts
     } else {
         products = defaultState;
-        return [...products.filter(product =>
+        showProducts = [...products.filter(product =>
             (((product.discont_price === 0.75) ? product.price : product.discont_price >= from_price) &&
                 ((product.discont_price === 0.75) ? product.price : product.discont_price <= to_price))
                 ? product
                 : ''
-        )]
+        )];
+        save_local(showProducts);
+        return showProducts
     }
 }
 
 const checkSearch = (search_value, products) => {
-    console.log(search_value, products)
     const filteredProducts = products.filter(product => product.title.toLowerCase().startsWith(search_value));
-    console.log(filteredProducts)
+    save_local(filteredProducts)
     return [...filteredProducts]
 }
 
 export const filterReducer = (state = defaultState, action) => {
     if (action.type === LOAD_FILTRATION_PRODUCTS) {
         defaultState = action.payload;
-        return defaultState
+        showProducts = action.payload;
+        save_local(showProducts);
+        return [...showProducts]
     } else if (action.type === CHECK_DISCOUNT) {
         return checkDiscount(action.payload, state)
     } else if (action.type === CHECK_SORT) {
@@ -81,11 +94,11 @@ export const filterReducer = (state = defaultState, action) => {
     } else if (action.type === CHECK_PRICE) {
         return checkPrice(action.payload, state)
     } else if (action.type === LOAD_ALL_PRODUCTS) {
-        return [...defaultState]
+        save_local(defaultState)
+        return defaultState
     } else if (action.type === SEARCH_PRODUCT) {
         return checkSearch(action.payload, state)
-    }
-    else {
+    } else {
         return state
     }
 }
