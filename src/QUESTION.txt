@@ -1,0 +1,116 @@
+1. Нужно ли переносить FormInputAuthentification, FormButtonAuthentification, FormItemAuthentificationв UI или они могут быть в components? как лучше? 
+
+************************************
+
+2. Модульное окно с Registration подтягивается на любой из pages с сохранением исходной страницы, с которой вызывается открытие модульного окна. Так как login и reset_password я вызывать могу только после открытия Registration - у меня не получилось настроить процесс, чтобы сохраненить исходную страницу, с которой вызывается открытие модульного окна (поэтому поставила заглушку с подгружется все с '/'). Как настроить процесс, чтобы сохранялась страница? И как сделать, чтобы была возможность переходить несколько раз с Registration на login и обратно? Сейчас адресса налаживаются и выкидывает с модульного окна при переходе с login обратно на Registration
+
+При открытии модального окна и закрытии его (через крестик) - становится не доступна в header кнопка categories и скрол с нижней части страницы в #top срабатывает. Модальное окно закрывается, но оно как будто остается активным на странице, как исправить это?
+
+При открытии модального окна данные "под модальным окном" перемещаюься как можно зафикрисовать страницу. Пробовала через overflow: hidden в body (но не смогла настроить как отключить этот режим при закрытии модульного окна). Как можно это исправить?
+
+************************************
+
+3. В ProductsContainer не получается вывести title current_category. 
+<p>{categories.find(el => el.id === +id_category).title}</p> - один раз срабатывает, а потом как будто, данные стираются и массив становится пустым
+почему свойство title периодически как бы пропадает, categories подгружаются в useeffect?
+
+Код работает только с <p>{current_category?.title}</p>
+
+************************************
+
+4. Как можно реализовать зависимость ширины экрана и колличества отображаемых продуктов в Promotions? 
+Сейчас при ширине экрана от 768px до 992px отображается 3 рандомных элемента вертикально, а хочется реализовать 2 рандомных элемента горизонтально (т.к. 3 не помещаются). В остальных вариантах 3 рандомных элемента помещаются горизонтально.
+
+************************************
+
+5. Как можно реализовать сразу при вводе в input отправку значений 'from_price' и 'to_price' (без отправки формы submit через кнопку Add в form)?
+Пробовала через onChange, получилось реализовать только from_price
+<form className={s.price_filtr}>
+	<label>Price:</label>
+		<input
+			type='text'
+			placeholder='from'
+			name='from_price'
+			id='from_price'
+			onChange={change_from_price}
+		/>
+		<input
+			type='text'
+			placeholder='to'
+			name='to_price'
+			id='to_price'
+			// onChange={change_to_price}
+		/>
+	</form>                
+
+отрабатывает правильно - начинает сортировку товара с введенной суммы (без отправки формы submit через кнопку в form)
+	const change_from_price = (event) => {
+		const from_price = event.target;
+		console.log(from_price.value);
+		const payload = {
+			from_price: +from_price.value,
+			to_price: 0,
+			change_prices: prices,
+		};
+		dispatch(check_price_action(payload));
+		setPrices(true);
+		document.getElementById('cd').checked = false;
+		setIsChecked(false);
+		document.getElementById('sorts').value = '';
+	};
+
+не могу разобраться как подтягивать to_price
+Наверное, не совсем правильное решение использовать submit и кнопку отправки Add скрывать (display: none)? Хотя, это вроде как работает)
+
+************************************
+
+6. В компоненте Description правильно ли указывать стили так:
+@media(min-width: 768px)
+    .wrapper
+        .description
+            .product_info
+                .price_and_btn_to_basket_container
+                    display: grid
+                    width: 400px
+                    margin: 0 auto
+                    gap: 20px
+                    .price_block
+                        padding: 0 20px
+
+или можно сразу обращаться на прямую к .price_and_btn_to_basket_container? 
+В дальнейшем при @media(min-width: 992px и т.д.) не возникнут ли проблемы с отработкой стилей?
+
+Правильно ли я использую в стилях & ?  
+
+************************************
+
+7. Не могу разобраться как сохранить в localStorage продукты
+Я так думаю, что все дело в том, что id category нужно соханить и уже его подгружать при перезагрузке страницы
+Сейчас в localStorage категория сохраняется, но не погружаются данные, при перезагрузке страницы продукты подгружаются, но данные id category в localStorage стираются. Не могу разобрать как решить эту проблему
+
+
+const read_local = () => JSON.parse(localStorage.getItem('categoryIdLocal')) ?? '';
+const write_local = (id_cat) => localStorage.setItem('categoryIdLocal', JSON.stringify(id_cat));
+
+const defaultCategoryId = read_local();
+
+************************************
+
+8. Нужно ли добавлять в стили в layout 
+.wrapper
+    min-height: 100vh
+    display: grid
+    grid-template-rows: 50px 1fr 50px
+
+чтобы контент растиягивался на всю страницу? я забыла это сделать и теперь, когда добавлена адаптивная верстка не получается это реализовать
+Это ошибка или не обязательно использовать в проетах?
+
+************************************
+
+9. Гайк, посмотрите, пожалуйста резюме. Я не уверена в правильности указанных skills и в проекте - используемые технологии
+Хотела бы узнать ваше мнение, може что-то добавить или изменить стоит?
+
+https://drive.google.com/file/d/1lH72fa74WL9XepRPGWCK4pkmv8M-IiI2/view?usp=sharing
+
+
+    
