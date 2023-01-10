@@ -1,12 +1,11 @@
 import React from 'react';
 import s from './style.module.sass';
-import picture from './media/image.png';
 import AddToBasketInDescription from '../../components/UI/AddToBasketInDescription';
 import { useDispatch } from 'react-redux';
 import { add_to_basket_action } from '../../store/reducer/basketReducer';
 
 export default function Description({ product }) {
-	const { id, title, price, discont_price, description } = product;
+	const { id, title, image, price, discont_price, description } = product;
 
 	const dispatch = useDispatch();
 
@@ -27,13 +26,15 @@ export default function Description({ product }) {
 				</p>
 			</div>
 		);
+	
+	const img_link = `http://localhost:3333/${image}`;
 
 	return (
 		<div className={['wrapper', s.wrapper].join(' ')}>
 			<p className={s.subheader}>{title}</p>
 			<div className={s.description}>
 				<div className={s.product_img}>
-					<img src={picture} alt={title} />
+					<img src={img_link} alt={title} />
 				</div>
 				<div className={s.product_info}>
 					<div className={s.price_and_btn_to_basket_container}>

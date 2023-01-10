@@ -13,6 +13,7 @@ export default function Basket() {
     const products_basket = useSelector(state => state.basket);
     const dispatch = useDispatch();
     
+    
     const products_array = products_basket.map(product => <BasketCard key={product.id} {...product} />)
     const empty_basket =
         <div className={s.empty_basket_container}>

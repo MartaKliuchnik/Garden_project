@@ -1,13 +1,12 @@
 import React from 'react';
 import s from './style.module.sass';
-import product from '../BasketCard/media/product_basket.png';
 import { delete_basket_card_action, decrement_count_product_at_the_basket_action, increment_count_product_at_the_basket_action } from '../../store/reducer/basketReducer';
 import { CloseOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 
 
-export default function BasketItem({id, title, price, discont_price, count }) {
-    
+export default function BasketItem({id, title, price, image, discont_price, count }) {
+    console.log(id, title, price);
     const dispatch = useDispatch();
 
     const block_price = discont_price === 0.75
@@ -21,11 +20,13 @@ export default function BasketItem({id, title, price, discont_price, count }) {
             <p className={s.price}>{price*count}€</p>
         </>
     
+    const img_link = `http://localhost:3333/${image}`;
+
     return (
         <div className={s.basket_item}>
             <CloseOutlined onClick={() => dispatch(delete_basket_card_action(id))} className={s.close_icon} />
             <div className={s.product_img}>
-                <img src={product} alt="photo_product" />
+                <img src={img_link} alt={title} />
             </div>
             <div className={s.product_info}>
                 <p>{title}</p>
