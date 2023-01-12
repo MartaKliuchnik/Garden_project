@@ -6,18 +6,18 @@ import { useDispatch } from 'react-redux';
 
 
 export default function BasketItem({id, title, price, image, discont_price, count }) {
-    console.log(id, title, price);
+    
     const dispatch = useDispatch();
 
     const block_price = discont_price === 0.75
         ?
         <>
-            <p className = {s.clear_price}>{price * count}€</p>
+            <p className = {s.clear_price}>{Math.round(price * count)}€</p>
         </>
         : 
         <>
-            <p className={s.discount_price}>{discont_price * count}€</p>
-            <p className={s.price}>{price*count}€</p>
+            <p className={s.discount_price}>{Math.round(discont_price * count)}€</p>
+            <p className={s.price}>{Math.round(price*count)}€</p>
         </>
     
     const img_link = `http://localhost:3333/${image}`;

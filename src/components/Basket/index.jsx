@@ -2,7 +2,7 @@ import React from 'react';
 import s from './style.module.sass';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import BasketCard from '../BasketCard';
+import BasketItem from '../BasketItem';
 import { RightOutlined } from '@ant-design/icons';
 import OrderForm from '../UI/OrderForm';
 import { clear_basket_action } from '../../store/reducer/basketReducer';
@@ -13,8 +13,7 @@ export default function Basket() {
     const products_basket = useSelector(state => state.basket);
     const dispatch = useDispatch();
     
-    
-    const products_array = products_basket.map(product => <BasketCard key={product.id} {...product} />)
+    const products_array = products_basket.map(product => <BasketItem key={product.id} {...product} />)
     const empty_basket =
         <div className={s.empty_basket_container}>
             <p>Basket is empty</p>
@@ -22,8 +21,8 @@ export default function Basket() {
     
     const total_price_order = products_basket.reduce((total_price, { price, discont_price, count }) => 
         discont_price === 0.75
-            ? total_price + price * count
-            : total_price + discont_price * count
+            ? Math.round(total_price + price * count)
+            : Math.round(total_price + discont_price * count)
         , 0)
 
     const clear_basket = products_basket.length === 0
