@@ -14,6 +14,18 @@ export default function Filtration() {
 	const [isChecked, setIsChecked] = useState(false);
 	const [prices, setPrices] = useState(false);
 
+	// const [priceParams, setPriceParams] = useState({ min: -Infinity, max: Infinity });
+	
+	// const maxInput = event => {
+	// 	setPriceParams(pre => ({ ...pre, max: +event.target.value || Infinity}));
+	// }
+
+	// const minInput = event => {
+	// 	setPriceParams(pre => ({ ...pre, min: +event.target.value || -Infinity}));
+	// }
+
+	// console.log(priceParams)
+
 	const dispatch = useDispatch();
 
 	const reset_setting = () => {
@@ -55,15 +67,16 @@ export default function Filtration() {
 	return (
 		<div className={s.filtr_container}>
 			<div className={s.filt_block}>
-				<form className={s.price_filtr} onSubmit={submit_price}>
+				<form className={s.price_filtr}
+					// onSubmit={submit_price}
+				>
 					<label>Price:</label>
-					<input
-						type='text'
-						placeholder='from'
-						name='from_price'
-						id='from_price'
+					<input type='number' placeholder='from' name='from_price' id='from_price'
+						// onInput={minInput}
 					/>
-					<input type='text' placeholder='to' name='to_price' id='to_price' />
+					<input type='number' placeholder='to' name='to_price' id='to_price'
+						// onInput={maxInput}
+					/>
 					<button>Add</button>
 				</form>
 

@@ -23,7 +23,7 @@ export default function Product({ id, title, price, discont_price, image}) {
                 <p className={s.discount}>-{Math.round((price - discont_price)*100/price)}%</p>
         </>
     
-    const link = `product/${id}`;
+    const link = `/product/${id}`;
     const img_link = `http://localhost:3333/${image}`;
 
     return (

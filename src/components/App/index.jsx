@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import PageCategories from "../../pages/PageCategories";
+import PagePromotions from '../../pages/PagePromotions';
 import MainPage from "../../pages/MainPage";
 import BasketPage from "../../pages/BasketPage";
 import NotFoundPage from '../../pages/NotFoundPage';
@@ -11,7 +12,7 @@ import ProductsContainer from "../ProductsContainer";
 import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
 import FormModal from "../FormModal";
-import { loadProducts } from "../../store/asyncActions/products";
+import { loadProducts, loadPromotionProducts } from "../../store/asyncActions/products";
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
@@ -19,7 +20,6 @@ function App() {
   const dispatch = useDispatch();
 
   const location = useLocation();
-  // console.log(location)
   const background = location.state && location.state.background;
   
   const slider_container = useRef();
@@ -118,9 +118,12 @@ function App() {
     }
   }
 
+  const promotions = useSelector(state => state.promotions);
+
     useEffect(() => {
       dispatch(loadCategories());
-      dispatch(loadProducts())
+      dispatch(loadProducts());
+      dispatch(loadPromotionProducts());
     }, [])
   
   window.addEventListener('resize', check_size);
@@ -140,20 +143,14 @@ function App() {
       <Routes location={background || location}>
         <Route path='/' element={<Layout/>}>
           <Route index element={<MainPage/>}/>
-          <Route path='/all_categories' element={<PageCategories />} />
-          <Route path='/basket' element={<BasketPage />} />
-
-          <Route path='/all_categories/categories/:id_category' element={<ProductsContainer />} />
-          <Route path='/categories/:id_category' element={<ProductsContainer />} />
-
-          <Route path='/all_categories/categories/:id_category/product/:id_product' element={<PageProductDescription/>}/>
-          <Route path='/categories/:id_category/product/:id_product' element={<PageProductDescription />} />
-          <Route path='/product/:id_product' element={<PageProductDescription />} />
-
+          <Route path='all_categories' element={<PageCategories />} />
+          <Route path='basket' element={<BasketPage />} />
+          <Route path='categories/:id_category' element={<ProductsContainer />} />
+          <Route path='product/:id_product' element={<PageProductDescription/>}/>
+          <Route path='all_promotions_products' element={<PagePromotions/>}/>
           <Route path='registration' element={<FormModal type_form='registration' />}/>
-          <Route path='/login' element={<FormModal type_form='login' />} />
-          <Route path='/reset_password' element={<FormModal type_form='reset_password' />} />
-          
+          <Route path='login' element={<FormModal type_form='login' />} />
+          <Route path='reset_password' element={<FormModal type_form='reset_password' />} />
           <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>

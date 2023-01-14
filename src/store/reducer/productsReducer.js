@@ -11,7 +11,7 @@ export const productsReducer = (state = defaultState, action) => {
     if (action.type === LOAD_PRODUCTS) {
         state = action.payload
         write_local(state)
-        return [...state]
+        return state
     } else {
         return state
     }

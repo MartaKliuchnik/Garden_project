@@ -1,0 +1,67 @@
+@media (min-width: 576px)
+    .wrapper
+        padding-top: 40px
+        .subheader
+            display: flex
+            margin-bottom: 40px
+            align-items: flex-end
+            gap: 20px
+            .count_product
+                color: #8b8b8b
+                font-size: 15px
+            &>p
+                font-weight: 700
+                font-size: 20px
+                color: #242424
+        .filtration
+            margin-bottom: 34px
+        .products_container
+            display: flex
+            align-items: center
+            flex-direction: column
+            gap: 20px
+            .empty_request
+                margin-top: 10px 
+                margin-bottom: 100px
+                grid-column-start: 1
+                grid-column-end: 4
+                text-align: center
+                font-weight: 700
+                font-size: 20px
+                color: #242424
+
+@media(min-width: 768px)
+    .wrapper
+        &>.subheader>p
+            font-size: 25px
+        &>.products_container
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 20px
+
+@media(min-width: 992px)
+    .wrapper
+        padding-top: 60px
+        &>.subheader>p
+            font-size: 30px
+        &>.products_container
+            grid-template-columns: repeat(3, 1fr)
+            gap: 10px
+
+@media (min-width: 1200px)
+    .wrapper
+        padding-top: 80px
+        &>.subheader>p
+            font-size: 40px
+        &>.products_container
+            gap: 30px
+
+@media (min-width: 1440px)
+    .wrapper
+        padding-top: 90px
+        margin-bottom: 56px
+        &>.subheader>p
+            margin-bottom: 80px
+        &>.products_container
+            grid-template-columns: repeat(4, 1fr)
+            gap: 43px
