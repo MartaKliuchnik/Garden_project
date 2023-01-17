@@ -27,9 +27,10 @@ export default function ProductsContainer() {
 	}, []);
 	
 	return (
+		current_category &&
 		<div className={['wrapper', s.wrapper].join(' ')}>
 			<div className={s.subheader}>
-				<p>{current_category?.title}</p>
+				<p>{current_category.title}</p>
 				<p className={s.count_product}>
 					{showProducts.length} {sample_word}
 				</p>

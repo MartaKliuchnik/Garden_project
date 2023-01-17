@@ -6,6 +6,7 @@ import { productsReducer } from './reducer/productsReducer';
 import { descriptionReducer } from './reducer/descriptionReducer';
 import { filterReducer } from './reducer/filterReducer';
 import { promotionsReducer } from './reducer/promotionsReducer';
+import { promotionsRandomReducer } from './reducer/randomPromotionsReducer';
 
 const rootReducer = combineReducers({
     categories: categoriesReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     product: descriptionReducer,
     filtration: filterReducer,
     promotions: promotionsReducer,
+    randomPromotions: promotionsRandomReducer,
     basket: basketReducer
 })
 

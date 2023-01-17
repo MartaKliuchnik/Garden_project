@@ -1,0 +1,207 @@
+@media (min-width: 567px)
+    .filtr_container
+        display: flex
+        flex-direction: column
+        font-weight: 600
+        font-size: 12px
+        gap: 10px
+        .filt_block
+            display: grid
+            grid-template-columns: 280px 200px
+            gap: 10px
+            .price_filtr
+                gap: 11px
+                display: flex
+                align-items: center
+                &>input
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    width: 103px
+                    height: 42px
+                    padding: 0 10px
+                    &>::placeholder
+                        color: #ACACAC
+                &>button
+                    display: none
+            .discount_filtr
+                grid-row-start: 1
+                grid-row-end: 3
+                grid-column-start: 2
+                display: flex
+                align-items: center
+                gap: 15px
+                &>input
+                    padding: 0 10px
+                    width: 40px
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    accent-color: #339933
+            .sort
+                display: flex
+                align-items: center
+                gap: 17px
+                &>select
+                    padding: 0 5px
+                    width: 218px
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+        .search_block
+            display: flex
+            align-items: center
+            gap: 27px
+            .search
+                display: flex
+                justify-content: space-between
+                align-items: center
+                gap: 23px
+                label
+                    font-size: 22px
+                &>input
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    width: 218px
+                    height: 42px
+                    padding: 0 10px
+                    &>::placeholder
+                        color: #ACACAC
+            &>button
+                cursor: pointer
+                background-color: #339933
+                padding: 0 10px
+                width: 187px
+                height: 40px
+                border: 1px solid #339933
+                border-radius: 5px
+                color: white
+                transition: all 0.5s ease
+                &:hover
+                    background-color: white
+                    color: #339933
+                    border: 1px solid #339933
+
+@media (min-width: 768px)
+    .filtr_container
+        gap: 15px
+        .filt_block
+            display: flex
+            justify-content: space-between
+            font-size: 13px
+            gap: 15px
+            align-items: center
+            .price_filtr
+                gap: 10px
+                &>input
+                    font-size: 10px
+                    width: 70px
+                    height: 27px
+            .discount_filtr
+                gap: 10px
+                &>input
+                    width: 27px
+                    height: 27px
+            .sort
+                gap: 10px
+                &>select
+                    width: 150px
+                    height: 27px
+        .search_block
+            width: 100%
+            display: flex
+            justify-content: space-between
+            .search
+                gap: 25px
+                width: 63%
+                &>input
+                    width: 100%
+                    font-size: 10px
+                    height: 27px
+                    &>::placeholder
+                        color: #ACACAC
+            &>button
+                width: 190px
+                height: 27px
+
+@media (min-width: 992px)
+    .filtr_container
+        width: 80%
+        gap: 20px
+        .filt_block
+            font-size: 15px
+            .price_filtr
+                &>input
+                    border-radius: 7px
+                    height: 30px
+            .discount_filtr
+                &>input
+                    border-radius: 7px
+                    height: 30px
+                    width: 30px
+            .sort
+                &>select
+                    border-radius: 7px
+                    width: 180px
+                    height: 30px
+        .search_block
+            .search
+                &>input
+                    border-radius: 7px
+                    height: 30px
+            &>button
+                border-radius: 7px
+                width: 180px
+                height: 30px
+
+@media (min-width: 1200px)
+    .filtr_container
+        width: 70%
+        gap: 35px
+        .filt_block
+            font-size: 20px
+            .price_filtr
+                &>input
+                    font-size: 15px
+                    border-radius: 8px
+                    height: 40px
+            .discount_filtr
+                &>input
+                    border-radius: 8px
+                    height: 40px
+                    width: 40px
+            .sort
+                &>select
+                    border-radius: 8px
+                    width: 180px
+                    height: 40px
+                    font-size: 15px
+        .search_block
+            .search
+                width: 65%
+                gap: 35px
+                label
+                    font-size: 30px
+                &>input
+                    font-size: 15px
+                    border-radius: 8px
+                    height: 40px
+            &>button
+                font-size: 20px
+                border-radius: 8px
+                width: 240px
+                height: 40px
+
+@media (min-width: 1440px)
+    .filtr_container
+        .filt_block
+            .price_filtr
+                &>input
+                    width: 103px
+            .sort
+                &>select
+                    width: 220px
+        .search_block
+            .search
+                width: 62%
+            &>button
+                width: 280px

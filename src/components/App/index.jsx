@@ -14,6 +14,7 @@ import { loadCategories } from '../../store/asyncActions/categories';
 import FormModal from "../FormModal";
 import { loadProducts, loadPromotionProducts } from "../../store/asyncActions/products";
 
+
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const categories = useSelector(state => state.categories);
@@ -118,12 +119,10 @@ function App() {
     }
   }
 
-  const promotions = useSelector(state => state.promotions);
-
     useEffect(() => {
       dispatch(loadCategories());
       dispatch(loadProducts());
-      dispatch(loadPromotionProducts());
+      dispatch(loadPromotionProducts())
     }, [])
   
   window.addEventListener('resize', check_size);
