@@ -7,9 +7,13 @@ import Product from '../Product';
 
 export default function PromotionsContainer() {
     const promotions = useSelector(state => state.promotions);
-    
+
     return (
+        promotions&&
         <div className={['wrapper', s.wrapper].join(' ')}>
+            <div className={s.subheader}>
+				<p>All promotions</p>
+			</div>
             <div className={s.filtration}>
 				<FilterForPromotions />
             </div>

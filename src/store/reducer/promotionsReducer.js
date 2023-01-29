@@ -10,7 +10,7 @@ export const load_promotions_action = (payload) => ({ type: LOAD_PROMOTIONS, pay
 export const sort_action = (payload) => ({ type: SORT, payload });
 export const price_search_action = (payload) => ({ type: PRISE_SEARCH, payload });
 export const word_search_action = (payload) => ({ type: WORD_SEARCH, payload });
-export const reset_action = (payload) => ({ type: RESET, payload });
+export const reset_action = () => ({ type: RESET });
 
 export const promotionsReducer = (state = defaultState, action) => {
     if (action.type === LOAD_PROMOTIONS) {
@@ -21,7 +21,6 @@ export const promotionsReducer = (state = defaultState, action) => {
                 show_flg: true
             }
         });
-        console.log(state);
         return [...state]
 
     } else if (action.type === SORT) {
@@ -38,7 +37,6 @@ export const promotionsReducer = (state = defaultState, action) => {
         })]
 
     } else if (action.type === WORD_SEARCH) {
-        console.log(action.payload)
         return [...state.map(promotion => {
             if (promotion.show_flg) {
                 promotion.show_flg = promotion.title.toLowerCase().startsWith(action.payload)

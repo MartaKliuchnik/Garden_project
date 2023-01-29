@@ -1,11 +1,11 @@
 @media (min-width: 576px)
     .wrapper
-        padding-top: 40px
+        min-height: calc(100vh - 280px)
+        padding-top: 20px
         .subheader
             display: flex
-            margin-bottom: 40px
+            margin-bottom: 20px
             align-items: flex-end
-            gap: 20px
             .count_product
                 color: #8b8b8b
                 font-size: 15px
@@ -21,7 +21,7 @@
             flex-direction: column
             gap: 20px
             .empty_request
-                margin-top: 10px 
+                margin-top: 10px
                 margin-bottom: 100px
                 grid-column-start: 1
                 grid-column-end: 4
@@ -32,6 +32,7 @@
 
 @media(min-width: 768px)
     .wrapper
+        min-height: calc(100vh - 300px)
         &>.subheader>p
             font-size: 25px
         &>.products_container
@@ -41,7 +42,8 @@
 
 @media(min-width: 992px)
     .wrapper
-        padding-top: 60px
+        min-height: calc(100vh - 355px)
+        padding-top: 40px
         &>.subheader>p
             font-size: 30px
         &>.products_container
@@ -50,7 +52,8 @@
 
 @media (min-width: 1200px)
     .wrapper
-        padding-top: 80px
+        min-height: calc(100vh - 400px)
+        padding-top: 50px
         &>.subheader>p
             font-size: 40px
         &>.products_container
@@ -58,10 +61,11 @@
 
 @media (min-width: 1440px)
     .wrapper
-        padding-top: 90px
+        min-height: calc(100vh - 440px)
+        padding-top: 60px
         margin-bottom: 56px
         &>.subheader>p
-            margin-bottom: 80px
+            margin-bottom: 20px
         &>.products_container
             grid-template-columns: repeat(4, 1fr)
             gap: 43px

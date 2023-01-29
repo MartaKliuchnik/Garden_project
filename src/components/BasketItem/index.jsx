@@ -20,7 +20,7 @@ export default function BasketItem({id, title, price, image, discont_price, coun
             <p className={s.price}>{Math.round(price*count)}€</p>
         </>
     
-    const img_link = `http://localhost:3333/${image}`;
+    const img_link = ` http://164.92.182.164:3333/${image}`;
 
     return (
         <div className={s.basket_item}>

@@ -14,7 +14,6 @@ const getRandomArray = (promotions) => {
                 random_promotions.push(promotions[index]);
                 selectedIndices[index] = index;
             }
-            console.log(random_promotions)
         }
         return [...random_promotions]
     }

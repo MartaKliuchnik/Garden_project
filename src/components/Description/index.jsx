@@ -10,7 +10,7 @@ export default function Description({ product }) {
 	const dispatch = useDispatch();
 
 	const add_to_basket = () =>
-		dispatch(add_to_basket_action({ id, title, price, discont_price }));
+		dispatch(add_to_basket_action({ id, title, price, discont_price, image }));
 
 	const block_price =
 		discont_price === 0.75 ? (
@@ -27,9 +27,11 @@ export default function Description({ product }) {
 			</div>
 		);
 	
-	const img_link = `http://localhost:3333/${image}`;
+	const img_link = `http://164.92.182.164:3333${image}`;
 
 	return (
+		<div className={s.container}>
+
 		<div className={['wrapper', s.wrapper].join(' ')}>
 			<p className={s.subheader}>{title}</p>
 			<div className={s.description}>
@@ -49,6 +51,7 @@ export default function Description({ product }) {
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
+			</div>
 	);
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Category({ id, title, image, type }) {
 	const link = `/categories/${id}`;
 
-	const img_link = `http://localhost:3333/${image}`;
+	const img_link = ` http://164.92.182.164:3333/${image}`;
 
 	return (
 		<Link to={link} className={[s.category_container, s[type]].join(' ')}>
