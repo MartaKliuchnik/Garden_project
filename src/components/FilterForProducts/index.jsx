@@ -34,13 +34,14 @@ export default function FilterForProducts() {
     const check_search_products = event => {
         if (event.target.value !== '') {
             setSearchProductsParams(event.target.value);
-        }
-        else {
+        } else {
             setSearchProductsParams('')
 		}
     }
     
     let [isChecked, setIsChecked] = useState(false);
+
+
     useEffect(() => {
         if (searchProductsParams === '' && !isChecked) {
             const payload = {
@@ -188,7 +189,8 @@ export default function FilterForProducts() {
 
     const reset_products = () => {
 		document.getElementById('sorts').value = '';
-		document.getElementById('search_word').value = '';
+        document.getElementById('search_word').value = '';
+        setSearchProductsParams('');
         setPriceParams({ minInput: -Infinity, maxInput: Infinity });
 		dispatch(reset_products_action());
 	}
@@ -229,15 +231,14 @@ export default function FilterForProducts() {
 					<label><SearchOutlined /></label>
 					<input
 						type='text'
-						name='search'
                         placeholder='Search'
                         id='search_word'
                         value={searchProductsParams}
 						onChange={check_search_products}
                     />
-                    
+                </form>
+
                     <button onClick={reset_products}>Reset settings</button>
-				</form>
 			</div>
             
         </div>

@@ -2,49 +2,92 @@ import React, { useState } from 'react';
 import s from './style.module.sass';
 import { SearchOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-import { sort_action, price_search_action, word_search_action, reset_action } from '../../store/reducer/promotionsReducer';
+import {
+	check_sort_promotions_action,
+	price_search_promotions_action,
+	word_search_promotions_action,
+	reset_promotions_action
+} from '../../store/reducer/promotionsReducer';
 import { useEffect } from 'react';
 
 
 export default function FilterForPromotions() {
 	const dispatch = useDispatch();
 
-	const [priceParams, setPriceParams] = useState({ min: -Infinity, max: Infinity });
-
+	const [priceParamsForPromotions, setPriceParamsForPromotions] = useState({ minInput: -Infinity, maxInput: Infinity });
 	const maxInput = event => {
-		setPriceParams(pre => ({ ...pre, max: +event.target.value || Infinity }));
+		setPriceParamsForPromotions(pre => ({ ...pre, maxInput: +event.target.value || Infinity }));
 	}
 	const minInput = event => {
-		setPriceParams(pre => ({ ...pre, min: +event.target.value || -Infinity}));
+		setPriceParamsForPromotions(pre => ({ ...pre, minInput: +event.target.value || -Infinity }));
 	}
+
+
+	const check_sort_promotions = (event) => {
+		const sorts = event.target;
+		dispatch(check_sort_promotions_action(+sorts.value));
+	}
+
+
+	const [searchPromotionsParams, setSearchPromotionsParams] = useState('');
+	const check_search_promotions = event => {
+		if (event.target.value !== '') {
+			setSearchPromotionsParams(event.target.value);
+		} else {
+			setSearchPromotionsParams('')
+		}
+	}
+
 
 	useEffect(() => {
-		dispatch(price_search_action(priceParams));
-	}, [priceParams])
-
-	const check_sort = (event) => {
-		event.preventDefault();
-		const sorts = event.target;
-		dispatch(sort_action(+sorts.value));
-	}
-
-	const [searchParams, setSearchParams] = useState('');
-
-	const searchWord = event => {
-		if (event.target.value !== '') {
-			setSearchParams(event.target.value);
-			dispatch(word_search_action(event.target.value));
+		if (searchPromotionsParams === '') {
+			const payload = {
+				params: priceParamsForPromotions,
+				check_search: false
+			};
+			dispatch(price_search_promotions_action(payload))
 		} else {
-			reset()
+			const payloadForSearch = {
+				params: searchPromotionsParams,
+				check_search: false
+			};
+			dispatch(word_search_promotions_action(payloadForSearch));
+			const payload = {
+				params: priceParamsForPromotions,
+				check_search: true
+			};
+			dispatch(price_search_promotions_action(payload));
 		}
-		
-	}
+	}, [priceParamsForPromotions]);
 	
-	const reset = () => {
+	useEffect(() => {
+		if (priceParamsForPromotions.min === -Infinity && priceParamsForPromotions.maxInput === Infinity) {
+			const payloadForSearch = {
+				params: searchPromotionsParams,
+				check_search: false
+			};
+			dispatch(word_search_promotions_action(payloadForSearch));
+		} else {
+			const payload = {
+				params: priceParamsForPromotions,
+				check_search: false
+			};
+			dispatch(price_search_promotions_action(payload));
+			const payloadForSearch = {
+				params: searchPromotionsParams,
+				check_search: true
+			};
+			dispatch(word_search_promotions_action(payloadForSearch));
+		}
+    }, [searchPromotionsParams]);
+
+
+	const reset_promotions = () => {
 		document.getElementById('sorts').value = '';
 		document.getElementById('search_word').value = '';
-		setPriceParams({ min: -Infinity, max: Infinity });
-		dispatch(reset_action());
+		setSearchPromotionsParams('');
+		setPriceParamsForPromotions({ minInput: -Infinity, maxInput: Infinity });
+		dispatch(reset_promotions_action());
 	}
 	
 	return (
@@ -55,27 +98,21 @@ export default function FilterForPromotions() {
 					<input
 						type='number'
 						placeholder='from'
-						onChange={minInput}
-						value={priceParams.min}
+						onInput={minInput}
+						value={priceParamsForPromotions.minInput}
 					/>
 					<input
 						type='number'
 						placeholder='to'
-						onChange={maxInput}
-						value={priceParams.max}
+						onInput={maxInput}
+						value={priceParamsForPromotions.maxInput}
 					/>
 				</form>
 
 				<form className={s.sort}>
 					<label>Sort:</label>
-					<select
-						name='sorts'
-						defaultValue=''
-						id='sorts'
-						onChange={check_sort}>
-						<option value='' disabled hidden>
-							by default
-						</option>
+					<select name='sorts' defaultValue='' id='sorts' onChange={check_sort_promotions}>
+						<option value='' disabled hidden> by default </option>
 						<option value='1'>price: high-low</option>
 						<option value='2'>price: low-high</option>
 					</select>
@@ -84,18 +121,17 @@ export default function FilterForPromotions() {
 
 			<div className={s.search_block}>
 				<form className={s.search}>
-					<label>
-						<SearchOutlined />
-					</label>
+					<label> <SearchOutlined /> </label>
 					<input
 						type='text'
 						placeholder='Search'
-						onChange={searchWord}
 						id='search_word'
+						value={searchPromotionsParams}
+						onChange={check_search_promotions}
 					/>
 				</form>
 
-				<button onClick={reset}>Reset settings</button>
+				<button onClick={reset_promotions}>Reset settings</button>
 			</div>
 		</div>
 	);

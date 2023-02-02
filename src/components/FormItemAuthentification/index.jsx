@@ -1,6 +1,6 @@
 import React from 'react';
-import FormButtonAuthentification from '../../components/FormButtonAuthentification';
-import FormInputAuthentification from '../FormInputAuthentification';
+import FormButtonAuthentification from '../UI/FormButtonAuthentification';
+import FormInputAuthentification from '../UI/FormInputAuthentification';
 import s from './style.module.sass';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'react-router-dom';

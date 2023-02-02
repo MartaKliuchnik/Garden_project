@@ -25,13 +25,13 @@ const checkDiscount = (payload, products) => {
         })]
     } else if (params && !check_search) {
         return [...products.map(product => {
-            product.show_flg = product.discont_price <= 50
+            product.show_flg = product.discont_price !== 0
             return product
         })]
     } else if (params && check_search) {
         return [...products.map(product => {
             if (product.show_flg) {
-                product.show_flg = product.discont_price <= 50
+                product.show_flg = product.discont_price !== 0
             }
             return product
         })]

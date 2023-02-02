@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './style.module.sass';
 import picture_gnome from './media/gnome.png';
-import FormGettingDiscount from '../FormGettingDiscount'
+import FormGettingDiscount from '../UI/FormGettingDiscount';
 
 export default function Discount() {
     return (
