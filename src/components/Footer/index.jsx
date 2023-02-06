@@ -1,13 +1,12 @@
 import React from 'react';
-import Address from '../Address';
-import Contacts from '../Contacts';
 import s from './style.module.sass';
 
 export default function Footer() {
     return (
         <div className={['wrapper', s.wrapper].join(' ')}>
-            <Contacts />
-            <Address/>
+            <div className={s.footer_text}>
+                <p>© 2022 - GardenTools. All Rights Reserved.</p>
+            </div>
         </div>
     )
 }

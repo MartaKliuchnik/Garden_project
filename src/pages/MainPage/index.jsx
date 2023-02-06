@@ -3,6 +3,7 @@ import Sale from '../../components/Sale';
 import Discount from '../../components/Discount';
 import SliderContainer from '../../components/SliderContainer';
 import RandomPromotions from '../../components/RandomPromotions';
+import Contacts from '../../components/Contacts';
 
 
 export default function MainPage() {
@@ -12,7 +13,8 @@ export default function MainPage() {
             <Sale />
             <SliderContainer />
             <Discount />
-            <RandomPromotions/>
+            <RandomPromotions />
+            <Contacts/>
         </div>
     )
 }
