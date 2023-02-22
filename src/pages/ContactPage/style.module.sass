@@ -1,0 +1,53 @@
+@media(min-width: 576px)
+    .wrapper
+        min-height: calc(100vh - 140px)
+        color: #3c4139
+        .subheader
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 20px
+            &>p
+                text-align: center
+                font-size: 30px
+            .title_subheader
+                font-size: 40px
+                font-weight: 700
+        .links_content
+            display: flex
+            width: 90%
+            height: 500px
+            justify-content: space-between
+            margin: 30px auto
+            gap: 20px
+            .maps
+                width: 50%
+                background-color: #f6f6f6
+                border: 1px solid #339933
+                border-top-left-radius: 20px
+                border-bottom-left-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                iframe
+                    border: none
+                    border-radius: 20px
+                    width: 85%
+                    height: 85%
+                    allowfullscree: true
+            .info_text
+                width: 50%
+                border: 1px solid #339933
+                background-color: #f6f6f6
+                border-top-right-radius: 20px
+                border-bottom-right-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+
+
+@media(min-width: 992px)
+    .wrapper
+        min-height: calc(100vh - 170px)

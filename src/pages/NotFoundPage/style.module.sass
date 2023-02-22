@@ -1,8 +1,11 @@
 @media(min-width: 576px)
     .wrapper
-        margin: 0 auto
+        min-height: calc(100vh - 140px)
         padding: 50px 30px
-        display: grid
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 20px
         &>.warning
             font-size: 30px
             text-transform: uppercase
@@ -11,7 +14,7 @@
             font-size: 15px
             font-weight: 500
         &>.btn_home
-            margin: 50px auto
+            // margin: 50px auto
 
 @media(min-width: 768px)
     .wrapper
@@ -20,6 +23,7 @@
 
 @media(min-width: 992px)
     .wrapper
+        min-height: calc(100vh - 170px)
         &>.warning
             font-size: 45px
         &>.text

@@ -13,6 +13,7 @@ import PageProductDescription from "../../pages/PageProductDescription";
 import { loadCategories } from '../../store/asyncActions/categories';
 import FormModal from "../FormModal";
 import { loadProducts, loadPromotionProducts } from "../../store/asyncActions/products";
+import ContactPage from "../../pages/ContactPage";
 
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
           <Route path='categories/:id_category' element={<ProductsContainer />} />
           <Route path='product/:id_product' element={<PageProductDescription/>}/>
           <Route path='all_promotions_products' element={<PagePromotions/>}/>
+          <Route path='our_contacts' element={<ContactPage/>}/>
           <Route path='registration' element={<FormModal type_form='registration' />}/>
           <Route path='login' element={<FormModal type_form='login' />} />
           <Route path='reset_password' element={<FormModal type_form='reset_password' />} />

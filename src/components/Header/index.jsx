@@ -51,9 +51,9 @@ export default function Nav() {
                     </button>
                     <div ref={nav_list_ref} className={s.menu_list} onClick={nav_btn_click}>
                         <NavLink className={checkClass} to='all_categories'>Categories</NavLink>
-                        <NavLink className={checkClass} to='basket'>Coupon</NavLink>
-                        {/* <NavLink className={checkClass} to='all_products'>Promotions</NavLink> */}
-                        <a href="#contacts">Contacts</a>
+                        {/* <NavLink className={checkClass} to='basket'>Coupon</NavLink> */}
+                        <NavLink className={checkClass} to='all_promotions_products'>Promotions</NavLink>
+                        <NavLink className={checkClass} to='our_contacts'>Contacts</NavLink>
                     </div>
                 </nav>
                 <NavLink className={checkClass} to='/basket'><ShoppingOutlined className={s.icon_bag} /> {element_count} </NavLink> 
