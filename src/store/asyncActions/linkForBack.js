@@ -1,0 +1,1 @@
+export const render_link = 'https://garden-back.onrender.com';

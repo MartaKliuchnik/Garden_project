@@ -21,7 +21,7 @@ export default function ContactPage() {
                     <a href="#">gardentools@garden.com</a>
                 </div>
             </div>
-                <FormContact/>
+                {/* <FormContact/> */}
         </div>
     )
 }

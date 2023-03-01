@@ -3,6 +3,7 @@ import s from './style.module.sass';
 import AddToBasketInDescription from '../../components/UI/AddToBasketInDescription';
 import { useDispatch } from 'react-redux';
 import { add_to_basket_action } from '../../store/reducer/basketReducer';
+import {render_link} from '../../store/asyncActions/linkForBack';
 
 export default function Description({ product }) {
 	const { id, title, image, price, discont_price, description } = product;
@@ -27,7 +28,8 @@ export default function Description({ product }) {
 			</div>
 		);
 	
-	const img_link = `http://164.92.182.164:3333${image}`;
+	// const img_link = `http://164.92.182.164:3333${image}`;
+	const img_link = `${render_link}${image}`;
 
 	return (
 		<div className={s.container}>
