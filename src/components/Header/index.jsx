@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import logo from './media/nav_logo.png';
 import s from './style.module.sass';
 import { MenuOutlined, ShoppingOutlined, CloseOutlined } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../context';
 import { useLocation } from 'react-router-dom';
@@ -35,7 +35,7 @@ export default function Nav() {
     return (
         <div className={['wrapper', s.header].join(' ')} id='top'>
             <div className={s.header_main}>
-                <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
+                <Link to="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></Link>
                 <NavLink to='registration' state={{ background: location }}>
                     <button className={s.btn_log}
                         onClick={() => setModalActive(true)}>

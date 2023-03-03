@@ -4,6 +4,7 @@ import AddToBasket from '../UI/AddToBasket';
 import { useDispatch } from 'react-redux';
 import { add_to_basket_action } from '../../store/reducer/basketReducer';
 import { Link } from 'react-router-dom';
+import {render_link} from '../../store/asyncActions/linkForBack';
 
 export default function Product({ id, title, price, discont_price, image}) {
 
@@ -24,7 +25,8 @@ export default function Product({ id, title, price, discont_price, image}) {
         </>
     
     const link = `/product/${id}`;
-    const img_link = `http://164.92.182.164:3333/${image}`;
+    // const img_link = `http://164.92.182.164:3333/${image}`;
+    const img_link = `${render_link}/${image}`;
 
     return (
         <div className={s.wrapper}>
