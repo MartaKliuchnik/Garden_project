@@ -3,7 +3,7 @@ import s from './style.module.sass';
 import { delete_basket_card_action, decrement_count_product_at_the_basket_action, increment_count_product_at_the_basket_action } from '../../store/reducer/basketReducer';
 import { CloseOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-
+import {render_link} from '../../store/asyncActions/linkForBack';
 
 export default function BasketItem({id, title, price, image, discont_price, count }) {
     
@@ -20,7 +20,8 @@ export default function BasketItem({id, title, price, image, discont_price, coun
             <p className={s.price}>{Math.round(price*count)}€</p>
         </>
     
-    const img_link = ` http://164.92.182.164:3333/${image}`;
+    // const img_link = ` http://164.92.182.164:3333/${image}`;
+    const img_link = `${render_link}/${image}`;
 
     return (
         <div className={s.basket_item}>
