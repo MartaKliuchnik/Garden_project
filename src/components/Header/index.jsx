@@ -36,7 +36,7 @@ export default function Nav() {
         <div className={['wrapper', s.header].join(' ')} id='top'>
             <div className={s.header_main}>
                 <a  href="/"><img className={s.header_logo} src={logo} alt="icon_logo" /></a>
-                <NavLink to='/registration' state={{ background: location }}>
+                <NavLink to='registration' state={{ background: location }}>
                     <button className={s.btn_log}
                         onClick={() => setModalActive(true)}>
                         Log in
@@ -56,7 +56,7 @@ export default function Nav() {
                         <NavLink className={checkClass} to='our_contacts'>Contacts</NavLink>
                     </div>
                 </nav>
-                <NavLink className={checkClass} to='/basket'><ShoppingOutlined className={s.icon_bag} /> {element_count} </NavLink> 
+                <NavLink className={checkClass} to='basket'><ShoppingOutlined className={s.icon_bag} /> {element_count} </NavLink> 
             </div>
         </div>
     )

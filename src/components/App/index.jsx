@@ -138,10 +138,10 @@ function App() {
       setModalActive
     }}>
       
-      
       <Routes location={background || location}>
         <Route path='/' element={<Layout/>}>
-          <Route index element={<MainPage/>}/>
+          <Route index element={<MainPage />} />
+          <Route path='Garden_project' element={<PagePromotions />} />
           <Route path='all_categories' element={<PageCategories />} />
           <Route path='basket' element={<BasketPage />} />
           <Route path='categories/:id_category' element={<ProductsContainer />} />
