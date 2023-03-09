@@ -1,3 +1,111 @@
+@media(max-width: 320px)
+    .wrapper
+        padding: 40px 20px
+        height: 495px
+        display: flex
+        flex-direction: column
+        font-weight: 600
+        gap: 20px
+        &>.block_subheader
+            margin-bottom: 20px
+            font-weight: 700
+            font-size: 25px
+            display: flex
+            flex-direction: row
+            gap: 15px
+            // align-items: center
+            &>a
+                text-decoration: none
+                display: flex
+                align-items: center
+                &>button
+                    cursor: pointer
+                    width: 70px
+                    height: 13px
+                    font-size: 8px
+                    color: #8B8B8B
+                    border: 2px solid #8B8B8B
+                    font-weight: 600
+                    background-color: transparent
+                    &:hover
+                        color: black
+                        border: 2px solid black
+        &>.slider
+            padding: 0 82px
+            height: 430px
+            width: 100%
+            margin: 0 auto
+            position: relative
+            overflow-x: hidden
+            &>.trigger
+                position: absolute
+                font-size: 50px
+                top: 35%
+                cursor: pointer
+                z-index: 100
+                opacity: 0
+                transition: opacity 0.5s ease
+                &:hover
+                    opacity: 1
+            &>.left
+                display: none
+            &>.right
+                display: none
+
+@media(min-width: 321px)
+    .wrapper
+        padding: 40px 20px
+        height: 424px
+        display: flex
+        flex-direction: column
+        font-weight: 600
+        gap: 0px
+        &>.block_subheader
+            margin-bottom: 20px
+            font-weight: 700
+            font-size: 25px
+            display: flex
+            flex-direction: row
+            gap: 15px
+            // align-items: center
+            &>a
+                text-decoration: none
+                display: flex
+                align-items: center
+                &>button
+                    cursor: pointer
+                    width: 70px
+                    height: 13px
+                    font-size: 8px
+                    color: #8B8B8B
+                    border: 2px solid #8B8B8B
+                    font-weight: 600
+                    background-color: transparent
+                    &:hover
+                        color: black
+                        border: 2px solid black
+        &>.slider
+            padding: 0 82px
+            height: 430px
+            width: 100%
+            margin: 0 auto
+            position: relative
+            overflow-x: hidden
+            &>.trigger
+                position: absolute
+                font-size: 50px
+                top: 35%
+                cursor: pointer
+                z-index: 100
+                opacity: 0
+                transition: opacity 0.5s ease
+                &:hover
+                    opacity: 1
+            &>.left
+                display: none
+            &>.right
+                display: none                
+
 @media(min-width: 576px)
     .wrapper
         padding: 40px 30px
@@ -48,8 +156,10 @@
                 &:hover
                     opacity: 1
             &>.left
+                display: block
                 left: 10px
             &>.right
+                display: block
                 right: 10px
 
 @media(min-width: 768px)

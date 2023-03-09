@@ -1,3 +1,37 @@
+@media(max-width: 575px)
+    .wrapper
+        height: 300px
+        background-color: #A1E2EB
+        color: white
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        &>.sale_container
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            gap: 20px
+            &>.title
+                display: flex
+                max-width: 398px
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                font-size: 40px
+                font-weight: 700
+                &>p
+                    text-align: center
+                &>.sale_p_elem
+                    font-size: 60px
+                    font-weight: 700
+            &>.btn_container
+                display: flex
+                gap: 40px
+        &>.sale_picture
+            display: none
+    
 @media(min-width: 576px)
     .wrapper
         height: 300px
@@ -22,6 +56,7 @@
                 display: flex
                 gap: 20px
         &>.sale_picture
+            display: block
             top: 20px
             right: 0
             width: 43%
