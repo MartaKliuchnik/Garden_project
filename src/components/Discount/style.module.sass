@@ -1,3 +1,25 @@
+@media(max-width: 575px)
+    .wrapper
+        // padding-right: 40px
+        height: 300px
+        background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%)
+        display: flex
+        justify-content: center
+        align-items: center
+        &>.picture_block
+            display: none
+        &>.discount_info
+            color: white
+            display: flex
+            flex-direction: column
+            gap: 25px
+            &>.discount_subheader>.p_discount
+                font-size: 40px
+                font-weight: 900
+            &>.discount_subheader>p
+                font-size: 27px
+                font-weight: 900
+
 @media(min-width: 576px)
     .wrapper
         padding-right: 40px
@@ -7,6 +29,7 @@
         align-items: center
         gap: 50px
         &>.picture_block
+            display: block
             width: 35%
             height: 90%
             &>img

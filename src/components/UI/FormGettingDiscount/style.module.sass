@@ -1,3 +1,30 @@
+@media(max-width: 575px)
+    .form_container
+        display: flex
+        flex-direction: column
+        gap: 20px
+        &>input
+            font-weight: 600
+            color: #6C6C6C
+            font-size: 15px
+            padding: 0 30px
+            border-radius: 18px
+            height: 45px
+            border: 1px solid #FFFFFF
+        &>button
+            cursor: pointer
+            background-color: transparent
+            border-radius: 18px
+            height: 45px
+            border: 1px solid #FFFFFF
+            font-size: 20px
+            font-weight: 700
+            color: #FFFFFF
+            transition: color 0.5s, background-color 0.5s
+            &:hover
+                color: black
+                background-color: #FFFFFF
+    
 @media(min-width: 576px)
     .form_container
         display: flex
