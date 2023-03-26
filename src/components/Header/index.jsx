@@ -15,6 +15,7 @@ export default function Nav() {
     const products_basket = useSelector(state => state.basket);
     const nav_list_ref = useRef();
     const nav_btn = useRef();
+    // const active_link_ref = useRef();
 
     const location = useLocation();  
     // const background = location.state && location.state.background;
@@ -22,6 +23,7 @@ export default function Nav() {
     const nav_btn_click = () => {
         nav_list_ref.current.classList.toggle(s.active_link);
         nav_btn.current.classList.toggle(s.active);
+
     }
 
     const checkClass = ({ isActive }) => isActive ? s.active : '';

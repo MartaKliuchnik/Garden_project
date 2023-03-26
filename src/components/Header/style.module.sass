@@ -35,9 +35,12 @@
             gap: 20px
             align-items: center
             justify-content: space-between
-            overflow: hidden
             &>.menu_body
                 display: block
+                // &>.active_link
+                //     z-index: 1
+                //     transform: translateX(0)
+                //     overflow: hidden
                 &>.burger_menu
                     display: flex
                     align-items: center
@@ -92,6 +95,7 @@
                 &>.active_link
                     z-index: 1
                     transform: translateX(0)
+                    overflow: hidden
             &>a
                 color: #3c4139
                 border: none
