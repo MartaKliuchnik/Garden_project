@@ -32,7 +32,6 @@ export const promotionsReducer = (state = defaultState, action) => {
 
     } else if (action.type === PRISE_SEARCH_PROMOTIONS) {
         const { params, check_search } = action.payload;
-        console.log(params);
         if(!check_search){
             return [...state.map(promotions => {
                 promotions.show_flg = promotions.discont_price >= params.minInput && promotions.discont_price <= params.maxInput

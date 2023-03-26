@@ -95,18 +95,20 @@ export default function FilterForPromotions() {
 			<div className={s.filt_block}>
 				<form className={s.price_filtr}>
 					<label>Price:</label>
-					<input
-						type='number'
-						placeholder='from'
-						onInput={minInput}
-						value={priceParamsForPromotions.minInput}
-					/>
-					<input
-						type='number'
-						placeholder='to'
-						onInput={maxInput}
-						value={priceParamsForPromotions.maxInput}
-					/>
+					<div className={s.input_wrapper}>
+						<input
+							type='number'
+							placeholder='from'
+							onInput={minInput}
+							value={priceParamsForPromotions.minInput}
+						/>
+						<input
+							type='number'
+							placeholder='to'
+							onInput={maxInput}
+							value={priceParamsForPromotions.maxInput}
+						/>
+					</div>
 				</form>
 
 				<form className={s.sort}>
@@ -131,7 +133,9 @@ export default function FilterForPromotions() {
 					/>
 				</form>
 
-				<button onClick={reset_promotions}>Reset settings</button>
+				<div className={s.btn_container}>
+					<button onClick={reset_promotions}>Reset settings</button>
+				</div>
 			</div>
 		</div>
 	);
