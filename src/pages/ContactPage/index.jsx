@@ -15,8 +15,9 @@ export default function ContactPage() {
                 <iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=-73.949993%2C40.646806&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoyMjQwNTc3NjQwEjRVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EsIE5ldyBZb3JrLCBCcm9va2x5biBCb3JvdWdoIgoN8%2BmTwhVCmSJC&z=15.1" ></iframe>
                 </div>
                 <div className={s.info_text}>
-                    <p>Our location</p>
-                    <p>726 Sterling Pl, Brooklyn, NY 11222, USA</p>
+                    <p style={{fontWeight:'600'}}>Our location</p>
+                    <p>726 Sterling Pl, Brooklyn</p>
+                    <p>NY 11222, USA</p>
                     <p>+61(0) 999 999 999</p>
                     <a href="#">gardentools@garden.com</a>
                 </div>

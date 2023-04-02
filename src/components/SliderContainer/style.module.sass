@@ -147,21 +147,14 @@
             position: relative
             overflow-x: hidden
             &>.trigger
+                color: #4b5147
                 position: absolute
                 font-size: 50px
                 top: 35%
                 cursor: pointer
                 z-index: 100
-                opacity: 0
+                opacity: 1
                 transition: opacity 0.5s ease
-                &:hover
-                    opacity: 1
-            &>.left
-                display: block
-                left: 10px
-            &>.right
-                display: block
-                right: 10px
 
 @media(min-width: 768px)
     .wrapper
@@ -173,10 +166,24 @@
             &>a
                 &>button
                     width: 90px
-                    height: 18px
+                    height: 20px
                     font-size: 9px
         &>.slider
             width: 708px
+            &>.left
+                display: block
+                left: 10px
+                transition: all 0.5s
+                &:hover
+                    transform: scale(1.1)
+                    color: #006300
+            &>.right
+                display: block
+                right: 10px
+                transition: all 0.5s
+                &:hover
+                    transform: scale(1.1)
+                    color: #006300
 
 @media(min-width: 992px)
     .wrapper

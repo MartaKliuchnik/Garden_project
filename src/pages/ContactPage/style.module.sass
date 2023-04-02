@@ -1,25 +1,72 @@
-@media(min-width: 576px)
+@media(max-width: 575px)
     .wrapper
-        min-height: calc(100vh - 140px)
+        margin-top: 20px
         color: #3c4139
         .subheader
             display: flex
             flex-direction: column
-            align-items: center
+            align-items: flex-start
             gap: 20px
             &>p
-                text-align: center
-                font-size: 30px
+                text-align: justify
+                font-size: 15px
             .title_subheader
-                font-size: 40px
+                font-size: 20px
                 font-weight: 700
         .links_content
             display: flex
-            width: 90%
-            height: 500px
+            flex-direction: column-reverse
+            width: 100%
             justify-content: space-between
             margin: 30px auto
             gap: 20px
+            .maps
+                width: 100%
+                height: 250px
+                background-color: #f6f6f6
+                border: 1px solid #339933
+                border-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                iframe
+                    border: none
+                    border-radius: 20px
+                    width: 90%
+                    height: 90%
+                    allowfullscree: true
+            .info_text
+                width: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                &>a
+                    margin-top: 5px
+                    color: #339933
+
+@media(min-width: 576px)
+    .wrapper
+        margin-top: 30px
+        color: #3c4139
+        .subheader
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            gap: 20px
+            &>p
+                text-align: justify
+                font-size: 15px
+            .title_subheader
+                font-size: 20px
+                font-weight: 700
+        .links_content
+            display: flex
+            width: 100%
+            height: 350px
+            justify-content: space-between
+            margin: 30px auto
+            gap: 10px
             .maps
                 width: 50%
                 background-color: #f6f6f6
@@ -33,21 +80,189 @@
                 iframe
                     border: none
                     border-radius: 20px
-                    width: 85%
-                    height: 85%
+                    width: 90%
+                    height: 90%
                     allowfullscree: true
             .info_text
                 width: 50%
+                padding-left: 10px
                 border: 1px solid #339933
                 background-color: #f6f6f6
                 border-top-right-radius: 20px
                 border-bottom-right-radius: 20px
                 display: flex
+                gap: 5px
                 flex-direction: column
                 align-items: center
                 justify-content: center
+                &>a
+                    color: #339933
 
+@media(min-width: 768px)
+    .wrapper
+        margin-top: 30px
+        color: #3c4139
+        .subheader
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            gap: 20px
+            &>p
+                text-align: justify
+                font-size: 20px
+            .title_subheader
+                font-size: 25px
+                font-weight: 700
+        .links_content
+            display: flex
+            width: 100%
+            height: 350px
+            justify-content: space-between
+            margin: 30px auto
+            gap: 10px
+            .maps
+                width: 50%
+                background-color: #f6f6f6
+                border: 1px solid #339933
+                border-top-left-radius: 20px
+                border-bottom-left-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                iframe
+                    border: none
+                    border-radius: 20px
+                    width: 90%
+                    height: 90%
+                    allowfullscree: true
+            .info_text
+                width: 50%
+                padding-left: 10px
+                border: 1px solid #339933
+                background-color: #f6f6f6
+                border-top-right-radius: 20px
+                border-bottom-right-radius: 20px
+                display: flex
+                gap: 5px
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                font-size: 20px
+                &>a
+                    color: #339933
 
 @media(min-width: 992px)
     .wrapper
         min-height: calc(100vh - 170px)
+        margin-top: 40px
+        color: #3c4139
+        .subheader
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 20px
+            &>p
+                width: 90%
+                text-align: justify
+                font-size: 25px
+            .title_subheader
+                text-align: center
+                font-size: 30px
+                font-weight: 700
+        .links_content
+            display: flex
+            width: 90%
+            height: 350px
+            justify-content: space-between
+            margin: 30px auto
+            gap: 10px
+            .maps
+                width: 50%
+                background-color: #f6f6f6
+                border: 1px solid #339933
+                border-top-left-radius: 20px
+                border-bottom-left-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                iframe
+                    border: none
+                    border-radius: 20px
+                    width: 90%
+                    height: 90%
+                    allowfullscree: true
+            .info_text
+                width: 50%
+                padding-left: 10px
+                border: 1px solid #339933
+                background-color: #f6f6f6
+                border-top-right-radius: 20px
+                border-bottom-right-radius: 20px
+                display: flex
+                gap: 5px
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                font-size: 25px
+                &>a
+                    color: #339933
+
+@media(min-width: 1200px)
+    .wrapper
+        min-height: calc(100vh - 170px)
+        margin-top: 20px
+        margin-bottom: 60px
+        color: #3c4139
+        .subheader
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 20px
+            &>p
+                width: 90%
+                text-align: justify
+                font-size: 25px
+            .title_subheader
+                text-align: center
+                font-size: 40px
+                font-weight: 700
+        .links_content
+            display: flex
+            width: 90%
+            height: 450px
+            justify-content: space-between
+            margin: 30px auto
+            gap: 10px
+            .maps
+                width: 50%
+                background-color: #f6f6f6
+                border: 1px solid #339933
+                border-top-left-radius: 20px
+                border-bottom-left-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                iframe
+                    border: none
+                    border-radius: 20px
+                    width: 90%
+                    height: 90%
+                    allowfullscree: true
+            .info_text
+                width: 50%
+                padding-left: 10px
+                border: 1px solid #339933
+                background-color: #f6f6f6
+                border-top-right-radius: 20px
+                border-bottom-right-radius: 20px
+                display: flex
+                gap: 5px
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                font-size: 25px
+                &>a
+                    color: #339933
