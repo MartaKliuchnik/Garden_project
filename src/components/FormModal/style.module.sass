@@ -1,34 +1,75 @@
-.modal
-    width: 100%
-    height: 100%
-    background-color: rgba(2, 99, 41, 0.4)
-    display: flex
-    align-items: center
-    justify-content: center
-    position: fixed
-    top: 0
-    left: 0
-    opacity: 0
-    pointer-events: none
-.active
-    opacity: 1
-    pointer-events: all
-    &>.modal_content
-        background-color: white
-        border-radius: 20px
-        padding: 10px
-        position: relative
-        &>.close_icon
-            cursor: pointer
-            position: absolute
-            right: 15px
-            top: 10px
-            font-size: 20px
-        &>.form_registrations_container
-            display: none
-        &>.form_login_container
-            display: none
-        &>.form_reset_password_container
-            display: none
-        &>.active
-            display: block
+@media(max-width: 429px)
+    .modal
+        display: none
+        width: 100%
+        height: 100%
+        background-color: rgba(2, 99, 41, 0.4)
+        align-items: center
+        justify-content: center
+        position: fixed
+        top: 0
+        left: 0
+        opacity: 4
+        pointer-events: none
+    .active
+        display: flex
+        opacity: 1
+        pointer-events: all
+        &>.modal_content
+            width: 95%
+            background-color: white
+            border-radius: 20px
+            padding: 10px
+            position: relative
+            &>.close_icon
+                cursor: pointer
+                position: absolute
+                right: 10px
+                top: 10px
+                font-size: 20px
+            &>.form_registrations_container
+                display: none
+            &>.form_login_container
+                display: none
+            &>.form_reset_password_container
+                display: none
+            &>.active
+                display: block
+
+@media(min-width: 430px)
+    .modal
+        display: none
+        width: 100%
+        height: 100%
+        background-color: rgba(2, 99, 41, 0.4)
+        align-items: center
+        justify-content: center
+        position: fixed
+        top: 0
+        left: 0
+        opacity: 4
+        pointer-events: none
+    .active
+        display: flex
+        opacity: 1
+        pointer-events: all
+        &>.modal_content
+            width: 420px
+            background-color: white
+            border-radius: 20px
+            padding: 10px
+            position: relative
+            &>.close_icon
+                cursor: pointer
+                position: absolute
+                right: 15px
+                top: 10px
+                font-size: 20px
+            &>.form_registrations_container
+                display: none
+            &>.form_login_container
+                display: none
+            &>.form_reset_password_container
+                display: none
+            &>.active
+                display: block

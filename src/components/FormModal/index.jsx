@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { Context } from '../../context';
 import FormItemAuthentification from '../../components/FormItemAuthentification';
 
-export default function FormModal({type_form}) {
+export default function FormModal({ type_form }) {
     const { modalActive, setModalActive } = useContext(Context);
 
     return (
