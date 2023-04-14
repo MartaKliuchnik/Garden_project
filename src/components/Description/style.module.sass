@@ -1,14 +1,14 @@
-@media(min-width: 576px)
+@media(max-width: 575px)
     .container
         min-height: calc(100vh - 140px)
         .wrapper
             padding: 30px 30px
-            padding-top: 10px
+            padding-top: 30px
             display: grid
             gap: 34px
             .subheader
                 font-size: 20px
-                color: #242424
+                color: #3c4139
                 font-weight: 600
             .description
                 display: flex
@@ -20,6 +20,71 @@
                         width: 100%
                         height: 100%
                 .product_info
+                    padding-top: 20px
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    gap: 40px
+                    .price_and_btn_to_basket_container
+                        display: grid
+                        gap: 10px
+                        .price_block
+                            display: flex
+                            align-items: center
+                            justify-content: space-between
+                            .clear_price
+                                font-weight: 600
+                                font-size: 32px
+                            .discount_price
+                                font-weight: 600
+                                font-size: 32px
+                            .price
+                                font-size: 12px
+                                font-weight: 500
+                                text-decoration: line-through
+                                color: #8B8B8B
+                            .discount
+                                font-size: 12px
+                                font-weight: 600
+                                color: #FF32A1
+                    .description_block
+                        display: flex
+                        flex-direction: column
+                        gap: 15px
+                        max-height: 300px
+                        .description_container
+                            width: 100%
+                            overflow: scroll
+                            p
+                                text-align: justify
+                                font-size: 15px
+                        .subheader_description
+                            font-weight: 600
+                            font-size: 22px
+    
+@media(min-width: 576px)
+    .container
+        min-height: calc(100vh - 140px)
+        .wrapper
+            padding: 30px 30px
+            padding-top: 30px
+            display: grid
+            gap: 34px
+            .subheader
+                font-size: 20px
+                color: #3c4139
+                font-weight: 600
+            .description
+                display: flex
+                flex-direction: column
+                align-items: center
+                .product_img
+                    object-fit: contain
+                    img
+                        width: 100%
+                        height: 100%
+                .product_info
+                    width: 70%
                     padding-top: 20px
                     display: flex
                     flex-direction: column
@@ -50,12 +115,13 @@
                     .description_block
                         display: flex
                         flex-direction: column
+                        align-items: center
                         gap: 15px
                         max-height: 300px
                         .description_container
-                            width: 100%
                             overflow: scroll
                             p
+                                text-align: justify
                                 font-size: 15px
                         .subheader_description
                             font-weight: 600
@@ -66,6 +132,7 @@
         .wrapper
             .description
                 .product_info
+                    width: 495px
                     .price_and_btn_to_basket_container
                         display: grid
                         width: 100%

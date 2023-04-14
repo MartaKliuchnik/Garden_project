@@ -33,27 +33,26 @@ export default function Description({ product }) {
 
 	return (
 		<div className={s.container}>
-
-		<div className={['wrapper', s.wrapper].join(' ')}>
-			<p className={s.subheader}>{title}</p>
-			<div className={s.description}>
-				<div className={s.product_img}>
-					<img src={img_link} alt={title} />
-				</div>
-				<div className={s.product_info}>
-					<div className={s.price_and_btn_to_basket_container}>
-						<div>{block_price}</div>
-						<AddToBasketInDescription onClick={add_to_basket} />
+			<div className={['wrapper', s.wrapper].join(' ')}>
+				<p className={s.subheader}>{title}</p>
+				<div className={s.description}>
+					<div className={s.product_img}>
+						<img src={img_link} alt={title} />
 					</div>
-					<div className={s.description_block}>
-						<p className={s.subheader_description}>Description</p>
-						<div className={s.description_container}>
-							<p>{description}</p>
+					<div className={s.product_info}>
+						<div className={s.price_and_btn_to_basket_container}>
+							<div>{block_price}</div>
+							<AddToBasketInDescription onClick={add_to_basket} />
+						</div>
+						<div className={s.description_block}>
+							<p className={s.subheader_description}>Description</p>
+							<div className={s.description_container}>
+								<p>{description}</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			</div>
+		</div>
 	);
 }
