@@ -1,17 +1,18 @@
-@media(min-width: 576px)
+@media(max-width: 449px)
     .wrapper
         min-height: calc(100vh - 140px)
-        padding: 60px 30px
+        padding: 20px 30px
         display: flex
         flex-direction: column
         gap: 10px
         &>.subheader
+            color: #3c4139
             display: flex
             justify-content: space-between
             align-items: center
             gap: 20px
             &>p
-                font-size: 40px
+                font-size: 20px
                 font-weight: 700
         &>.container
             display: flex
@@ -42,12 +43,153 @@
                     padding: 40px 0
                     text-align: center
                     &>p
-                        font-size: 30px
+                        color: #3c4139
+                        font-size: 20px
                         font-weight: 700
             &>.order_detail_container
+                color: #000000
+                padding: 20px
+                display: flex
+                gap: 20px
+                flex-direction: column
+                justify-content: space-between
+                border: 2px solid #3c4139
+                border-radius: 21px
+                &>p
+                    font-weight: 600
+                    font-size: 18px
+                &>.price_container
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    font-weight: 500
+                    font-size: 14px
+                    &>.price
+                        color: #000000
+                        font-weight: 600
+                        font-size: 22px
+
+@media(min-width: 450px)
+    .wrapper
+        min-height: calc(100vh - 140px)
+        padding: 60px 30px
+        display: flex
+        flex-direction: column
+        gap: 10px
+        &>.subheader
+            color: #3c4139
+            display: flex
+            justify-content: space-between
+            align-items: center
+            gap: 20px
+            &>p
+                font-size: 20px
+                font-weight: 700
+        &>.container
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-top: 15px
+            font-size: 15px
+            font-weight: 500
+            &>a
+                text-decoration: none
+                color: #A7A7A7
+                &:hover
+                    color: #339933
+            &>.btn_clear_basket
+                background-color: transparent
+                border: none
+                cursor: pointer
+                color: #A7A7A7
+                &:hover
+                    color: #339933
+        &>.basket_container
+            display: flex
+            flex-direction: column
+            gap: 40px
+            &>.orders
+                border-top: 2px solid #A7A7A7
+                &>.empty_basket_container
+                    padding: 40px 0
+                    text-align: center
+                    &>p
+                        color: #3c4139
+                        font-size: 20px
+                        font-weight: 700
+            &>.order_detail_container
+                color: #000000
+                width: 70%
+                margin: 0 auto
                 padding: 25px
                 display: flex
                 gap: 20px
+                flex-direction: column
+                justify-content: space-between
+                border: 2px solid #3c4139
+                border-radius: 21px
+                &>p
+                    font-weight: 600
+                    font-size: 18px
+                &>.price_container
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    font-weight: 500
+                    font-size: 14px
+                    &>.price
+                        font-weight: 600
+                        font-size: 22px             
+    
+@media(min-width: 576px)
+    .wrapper
+        min-height: calc(100vh - 140px)
+        padding: 30px 30px
+        display: flex
+        flex-direction: column
+        gap: 10px
+        &>.subheader
+            display: flex
+            justify-content: space-between
+            align-items: center
+            gap: 20px
+            &>p
+                font-weight: 700
+        &>.container
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-top: 15px
+            font-size: 15px
+            font-weight: 500
+            &>a
+                text-decoration: none
+                color: #A7A7A7
+                &:hover
+                    color: #339933
+            &>.btn_clear_basket
+                background-color: transparent
+                border: none
+                cursor: pointer
+                color: #A7A7A7
+                &:hover
+                    color: #339933
+        &>.basket_container
+            display: flex
+            flex-direction: column
+            gap: 40px
+            &>.orders
+                border-top: 2px solid #A7A7A7
+                &>.empty_basket_container
+                    padding: 40px 0
+                    text-align: center
+                    &>p
+                        font-weight: 700
+            &>.order_detail_container
+                width: 350px
+                padding: 20px
+                display: flex
+                gap: 25px
                 flex-direction: column
                 justify-content: space-between
                 border: 2px solid #000000
@@ -67,17 +209,20 @@
 
 @media(min-width: 768px)
     .wrapper
+        &>.subheader
+            &>p
+                font-size: 25px
         &>.basket_container
             gap: 45px
             &>.orders
                 &>.empty_basket_container
                     padding: 45px 0
                     &>p
-                        font-size: 32px
-            &>.order_detail_container
-                margin: 0 auto
-                width: 450px
-                gap: 25px
+                        font-size: 25px
+            // &>.order_detail_container
+            //     margin: 0 auto
+            //     width: 450px
+            //     gap: 25px
 
 @media(min-width: 992px)
     .wrapper
@@ -100,6 +245,9 @@
             flex-direction: row
             &>.orders
                 width: 70%
+                &>.empty_basket_container
+                    &>p
+                        font-size: 30px
             &>.order_detail_container
                 height: 300px
                 padding: 25px
@@ -127,6 +275,10 @@
                 font-size: 20px
         &>.basket_container
             gap: 40px
+            &>.orders
+                &>.empty_basket_container
+                    &>p
+                        font-size: 40px
             &>.order_detail_container
                 height: 360px
                 padding: 23px
