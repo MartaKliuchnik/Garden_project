@@ -15,9 +15,7 @@ export const chech_discount_products_action = (payload) => ({ type: CHECK_DICSOU
 export const reset_products_action = () => ({ type: RESET_PRODUCTS});
 
 const checkDiscount = (payload, products) => {
-    console.log(products);
     const { params, check_search } = payload;
-    console.log(payload);
     if (!params && !check_search) {
         return [...products.map(product => {
             product.show_flg = true

@@ -200,8 +200,10 @@ export default function FilterForProducts() {
             <div className={s.filt_block}>
                 <form className={s.price_filtr}>
 					<label>Price:</label>
-					<input type='number' placeholder='from' onInput={minInput} value={priceParams.minInput}/>
-                    <input type='number' placeholder='to' onInput={maxInput} value={priceParams.maxInput}/>
+                    <div className={s.input_wrapper}>
+                        <input type='number' placeholder='from' onInput={minInput} value={priceParams.minInput}/>
+                        <input type='number' placeholder='to' onInput={maxInput} value={priceParams.maxInput}/>
+                    </div>
                 </form>
 
                 <div className={s.discount_filtr}>
@@ -237,8 +239,9 @@ export default function FilterForProducts() {
 						onChange={check_search_products}
                     />
                 </form>
-
+                <div className={s.btn_container}>
                     <button onClick={reset_products}>Reset settings</button>
+                </div>
 			</div>
             
         </div>

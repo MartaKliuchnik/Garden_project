@@ -1,4 +1,4 @@
-@media (min-width: 567px)
+@media (max-width: 320px)
     .filtr_container
         display: flex
         flex-direction: column
@@ -6,30 +6,223 @@
         font-size: 12px
         gap: 10px
         .filt_block
-            display: grid
-            grid-template-columns: 280px 200px
+            width: 100%
+            display: flex
+            flex-direction: column
             gap: 10px
             .price_filtr
-                gap: 11px
-                display: flex
+                width: 100%
+                display: grid
+                grid-template-columns: 15% 1fr 
                 align-items: center
-                &>input
-                    border: 1px solid #000000
-                    border-radius: 5px
-                    width: 103px
-                    height: 42px
-                    padding: 0 10px
-                    &>::placeholder
-                        color: #ACACAC
-                &>button
-                    display: none
+                justify-content: space-between
+                &>.input_wrapper
+                    width: 100%
+                    display: flex
+                    gap: 10px
+                    &>input
+                        border: 1px solid #000000
+                        border-radius: 5px
+                        width: 50%
+                        height: 42px
+                        padding: 0 10px
+                        &>::placeholder
+                            color: #ACACAC
             .discount_filtr
                 grid-row-start: 1
                 grid-row-end: 3
                 grid-column-start: 2
                 display: flex
+                justify-content: space-between
                 align-items: center
                 gap: 15px
+                &>input
+                    padding: 0 10px
+                    width: 40px
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    accent-color: #339933
+            .sort
+                display: flex
+                align-items: center
+                justify-content: space-between
+                width: 100%
+                // gap: 17px
+                &>select
+                    padding: 0 5px
+                    width: 85%
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+        .search_block
+            display: flex
+            flex-direction: column
+            width: 100%
+            // align-items: center
+            gap: 27px
+            .search
+                display: flex
+                justify-content: space-between
+                width: 100%
+                align-items: center
+                gap: 17px
+                label
+                    font-size: 22px
+                &>input
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    // width: 218px
+                    width: 85%
+                    height: 42px
+                    padding: 0 10px
+                    &>::placeholder
+                        color: #ACACAC
+            &>.btn_container
+                width: 100%
+                &>button
+                    cursor: pointer
+                    background-color: #339933
+                    padding: 0 10px
+                    width: 100%
+                    height: 40px
+                    border: 1px solid #339933
+                    border-radius: 5px
+                    color: white
+                    transition: all 0.5s ease
+                    &:hover
+                        background-color: white
+                        color: #339933
+                        border: 1px solid #339933
+
+@media (min-width: 321px)
+    .filtr_container
+        display: flex
+        width: 100%
+        flex-direction: column
+        font-weight: 600
+        font-size: 12px
+        gap: 10px
+        .filt_block
+            display: flex
+            flex-direction: column
+            width: 100%
+            gap: 10px
+            .price_filtr
+                // gap: 10px
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                &>.input_wrapper
+                    width: 85%
+                    display: flex
+                    gap: 10px
+                    &>input
+                        border: 1px solid #000000
+                        border-radius: 5px
+                        width: 50%
+                        height: 42px
+                        padding: 0 10px
+                        &>::placeholder
+                            color: #ACACAC
+            .discount_filtr
+                grid-row-start: 1
+                grid-row-end: 3
+                grid-column-start: 2
+                display: flex
+                justify-content: space-between
+                align-items: center
+                gap: 15px
+                &>input
+                    padding: 0 10px
+                    width: 40px
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    accent-color: #339933
+            .sort
+                display: flex
+                align-items: center
+                justify-content: space-between
+                width: 100%
+                &>select
+                    padding: 0 5px
+                    width: 85%
+                    height: 40px
+                    border: 1px solid #000000
+                    border-radius: 5px
+        .search_block
+            margin: 0 auto
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            gap: 27px
+            width: 100%
+            .search
+                display: flex
+                justify-content: space-between
+                width: 100%
+                align-items: center
+                gap: 17px
+                label
+                    font-size: 22px
+                &>input
+                    border: 1px solid #000000
+                    border-radius: 5px
+                    // width: 218px
+                    width: 85%
+                    height: 42px
+                    padding: 0 10px
+                    &>::placeholder
+                        color: #ACACAC
+            .btn_container
+                width: 100%
+                display: flex 
+                align-items: center
+                justify-content: center
+                &>button
+                    cursor: pointer
+                    background-color: #339933
+                    padding: 0 10px
+                    // width: 100%
+                    width: 350px
+                    height: 40px
+                    border: 1px solid #339933
+                    border-radius: 5px
+                    color: white
+                    transition: all 0.5s ease
+                    &:hover
+                        background-color: white
+                        color: #339933
+                        border: 1px solid #339933
+
+@media (min-width: 576px)
+    .filtr_container
+        width: 100%
+        display: flex
+        flex-direction: column
+        font-weight: 600
+        font-size: 12px
+        gap: 10px
+        .filt_block
+            display: grid
+            grid-template-columns: 50% 1fr
+            gap: 10px 27px
+            .price_filtr
+                display: grid
+                grid-template-columns: 1fr 85%
+                align-items: center
+                &>.input_wrapper
+                    width: 100%
+            .discount_filtr
+                grid-row-start: 1
+                grid-row-end: 3
+                grid-column-start: 2
+                display: flex
+                flex-direction: row
+                justify-content: flex-start
                 &>input
                     padding: 0 10px
                     width: 40px
@@ -43,14 +236,13 @@
                 gap: 17px
                 &>select
                     padding: 0 5px
-                    width: 218px
+                    width: 85%
                     height: 40px
                     border: 1px solid #000000
                     border-radius: 5px
-                &>button
-                    // display: none
         .search_block
-            display: flex
+            display: grid
+            grid-template-columns: 50% 1fr
             align-items: center
             gap: 27px
             .search
@@ -63,54 +255,60 @@
                 &>input
                     border: 1px solid #000000
                     border-radius: 5px
-                    width: 218px
+                    width: 85%
                     height: 42px
                     padding: 0 10px
                     &>::placeholder
                         color: #ACACAC
-            button
-                cursor: pointer
-                background-color: #339933
-                padding: 0 10px
-                width: 187px
-                height: 40px
-                border: 1px solid #339933
-                border-radius: 5px
-                color: white
-                transition: all 0.5s ease
-                &:hover
-                    background-color: white
-                    color: #339933
+            .btn_container
+                width: 185px
+                // margin: 0 auto
+                display: flex 
+                align-items: center
+                // justify-content: flex-end
+                &>button
+                    cursor: pointer
+                    background-color: #339933
+                    padding: 0 10px
+                    width: 100%
+                    height: 40px
                     border: 1px solid #339933
+                    border-radius: 5px
+                    color: white
+                    transition: all 0.5s ease
+                    &:hover
+                        background-color: white
+                        color: #339933
+                        border: 1px solid #339933
 
 @media (min-width: 768px)
     .filtr_container
-        gap: 15px
+        gap: 20px
         .filt_block
             display: flex
+            flex-direction: row
             justify-content: space-between
             font-size: 13px
             gap: 15px
             align-items: center
             .price_filtr
                 gap: 10px
-                &>input
-                    font-size: 10px
-                    width: 70px
-                    height: 27px
+                &>.input_wrapper
+                    &>input
+                        font-size: 10px
+                        height: 27px
             .discount_filtr
+                margin-left: 8%
                 gap: 10px
-                &>input
-                    width: 27px
-                    height: 27px
             .sort
                 gap: 10px
                 &>select
-                    width: 150px
+                    // width: 150px
                     height: 27px
         .search_block
             width: 100%
             display: flex
+            flex-direction: row
             justify-content: space-between
             .search
                 gap: 25px
@@ -121,9 +319,11 @@
                     height: 27px
                     &>::placeholder
                         color: #ACACAC
-            &>button
-                width: 190px
-                height: 27px
+            &>.btn_container
+                width: 30%
+                button
+                    // width: 190px
+                    height: 27px
 
 @media (min-width: 992px)
     .filtr_container
@@ -138,8 +338,8 @@
             .discount_filtr
                 &>input
                     border-radius: 7px
-                    height: 30px
-                    width: 30px
+                    // height: 30px
+                    // width: 30px
             .sort
                 &>select
                     border-radius: 7px
@@ -162,15 +362,16 @@
         .filt_block
             font-size: 20px
             .price_filtr
+                &>.input_wrapper
+                    &>input
+                        font-size: 15px
+                        border-radius: 8px
+                        height: 40px
+            &>.discount_filtr
                 &>input
-                    font-size: 15px
                     border-radius: 8px
-                    height: 40px
-            .discount_filtr
-                &>input
-                    border-radius: 8px
-                    height: 40px
-                    width: 40px
+                    height: 60px
+                    width: 60px
             .sort
                 &>select
                     border-radius: 8px
@@ -187,11 +388,12 @@
                     font-size: 15px
                     border-radius: 8px
                     height: 40px
-            &>button
-                font-size: 20px
-                border-radius: 8px
-                width: 240px
-                height: 40px
+            &>.btn_container
+                &>button
+                    font-size: 20px
+                    border-radius: 8px
+                    width: 240px
+                    height: 40px
 
 @media (min-width: 1440px)
     .filtr_container
@@ -201,9 +403,13 @@
                     width: 103px
             .sort
                 &>select
-                    width: 220px
+                    width: 280px
         .search_block
-            .search
-                width: 62%
-            &>button
-                width: 280px
+            &>.search
+                width: 63%
+            &>.btn_container
+                display: flex
+                justify-content: flex-end
+                width: 1fr
+                &>button
+                    width: 95%
