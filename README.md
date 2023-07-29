@@ -1,3 +1,6 @@
+![ga![garden_project](https://github.com/MartaKliuchnik/Garden_project/assets/101942611/0fc6fd4f-3d28-4be9-84dd-1781eb67232a)
+rden_project](https://github.com/MartaKliuchnik/Garden_project/assets/101942611/fa1ac7c5-94d3-4630-9a63-cd78038c66f2)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
