@@ -1,5 +1,19 @@
-![ga![garden_project](https://github.com/MartaKliuchnik/Garden_project/assets/101942611/0fc6fd4f-3d28-4be9-84dd-1781eb67232a)
-rden_project](https://github.com/MartaKliuchnik/Garden_project/assets/101942611/fa1ac7c5-94d3-4630-9a63-cd78038c66f2)
+![garden_store](https://github.com/MartaKliuchnik/Garden_project/assets/101942611/20cfaa65-2524-41bf-a01c-fb15a38d54c2)
+
+**Garden Store**
+
+For many of us, online shopping has become a routine part of daily life, with huge impact on a global scale. 
+This website is an incredible opportunity to engage your potential customers. 
+
+Main page that communicates both all categories and promotions available in website. There is opportunity to look through products with engaging product descriptions, adding them at the basket and increasing or decreasing count in the basket. Responsive design allows user to use this website on different devices without any restrictions.
+
+Used web-technologies:
+- HTML, CSS (SASS)
+- Javascript
+- React (React-router-dom, React Hook, Material UI)
+- Redux (Redux-thunk)
+
+link: https://garden-project.onrender.com/
 
 # Getting Started with Create React App
 
